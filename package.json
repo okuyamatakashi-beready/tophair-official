@@ -2,12 +2,14 @@
   "name": "tophair-official",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev": "npm-run-all --parallel build:css build:scss",
-    "build": "npm-run-all --parallel build:css build:scss",
-    "build:scss": "sass assets/css/src/main.scss assets/css/src/main.css --no-source-map --style=compressed",
-    "build:css": "postcss assets/css/src/main.css -o assets/css/dist/main.css"
-  },
+"scripts": {
+  "dev": "npm-run-all --parallel watch:scss watch:css",
+  "build": "npm-run-all --parallel build:css build:scss",
+  "build:scss": "sass assets/css/src/main.scss assets/css/src/main.css --no-source-map --style=compressed",
+  "build:css": "postcss assets/css/src/main.css -o assets/css/dist/main.css",
+  "watch:scss": "sass --watch assets/css/src/main.scss:assets/css/src/main.css --no-source-map",
+  "watch:css": "postcss assets/css/src/main.css -o assets/css/dist/main.css --watch"
+},
   "repository": {
     "type": "git",
     "url": "git+https://okuyamatakashi-beready@github.com/okuyamatakashi-beready/tophair-official.git"

@@ -20,6 +20,45 @@
 		<?php wp_head();?>
 	</head>
 <body>
-<header id="header">
+<header id="header" class="w-full">
+	<div class="container_max flex py-[3.4rem] justify-between">
+		<a href="/" class="header_logo w-[160px] ">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt="">
+		</a>
+		<nav class="flex justify-between w-[45%]">
+			<ul class="flex w-[45.7%] min-w-[670px]">
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white">コンセプト</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">トップヘアの特徴</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">サロン</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">メニュー</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">ニュース</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">ギャラリー</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">リクルート</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">会社概要</a>
+				</li>
+				<li class="pr-[2.8rem]">
+					<a href="" class="text-white ">コンタクト</a>
+				</li>
+			</ul>
 
+			<div class="flex">
+				<a href="" class=""></a>
+			</div>
+		</nav>
+	</div>
 </header>

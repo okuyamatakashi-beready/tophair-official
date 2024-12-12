@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "postcss scss/main.css -o dist/main.css",
-    "watch": "postcss scss/main.css -o dist/main.css --watch"
+    "dev": "npm-run-all --parallel build:css build:scss",
+    "build": "npm-run-all --parallel build:css build:scss",
+    "build:scss": "sass assets/css/src/main.scss assets/css/src/main.css --no-source-map --style=compressed",
+    "build:css": "postcss assets/css/src/main.css -o assets/css/dist/main.css"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,10 @@
   "description": "",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "npm-run-all": "^4.1.5",
     "postcss-cli": "^11.0.0",
+    "sass": "^1.68.0",
     "tailwindcss": "^3.4.16"
   }
 }

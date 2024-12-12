@@ -1,9 +1,8 @@
 <?php
 
-function contact_images_url() {
-	return get_stylesheet_directory_uri();
-}
-wpcf7_add_form_tag( 'indicate_images_url', 'contact_images_url' );
+require_once get_template_directory() . '/inc/enqueue.php';
+require_once get_template_directory() . '/inc/theme-setup.php';
+
 
 // アイキャッチ画像の設定
 add_theme_support('post-thumbnails');

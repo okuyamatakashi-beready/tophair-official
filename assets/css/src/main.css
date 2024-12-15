@@ -45,6 +45,7 @@ time, mark, audio, video {
 
 html {
   font-size: 0.520835vw;
+  overflow: visible;
 }
 
 body {
@@ -57,6 +58,7 @@ body {
   text-align: justify;
   background-color: #fff;
   position: relative;
+  overflow: visible;
 }
 
 @media screen and (max-width: 768px) {
@@ -206,6 +208,9 @@ textarea {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*-------------------------
+    共通
+-------------------------*/
 .container_max {
   @apply w-[95%] mx-auto;
 }
@@ -243,6 +248,24 @@ textarea {
   letter-spacing: 0.15em;
 }
 
+.vertical__center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.fp-watermark {
+  display: none;
+}
+
+.salon__menu--list {
+  @apply rounded-3xl text-black text-center text-1 py-1 border-solid border border-black;
+}
+
+/*-------------------------
+    header
+-------------------------*/
 #header {
   position: fixed;
   top: 0;
@@ -255,6 +278,9 @@ textarea {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+/*-------------------------
+    concept
+-------------------------*/
 #concept .concept__container .concept__content h2 {
   letter-spacing: 0.15em;
 }
@@ -270,6 +296,49 @@ textarea {
   background-image: url(./../../images/top/concept_img02.jpg);
 }
 
+/*-------------------------
+    features
+-------------------------*/
 #features {
   background-color: #E3DFDA;
+}
+@media screen and (max-width: 768px) {
+  #features .features__content .features__content--items {
+    width: 100%;
+  }
+}
+#features .features__content .features__content--items:nth-of-type(1) {
+  background-image: url(./../../images/top/features_img01.jpg);
+}
+#features .features__content .features__content--items:nth-of-type(2) {
+  background-image: url(./../../images/top/features_img02.jpg);
+}
+#features .features__content .features__content--items:nth-of-type(3) {
+  background-image: url(./../../images/top/features_img03.jpg);
+}
+#features .features__content .features__content--items:nth-of-type(4) {
+  background-image: url(./../../images/top/features_img04.jpg);
+}
+
+/*-------------------------
+    SALONS
+-------------------------*/
+#salons .salon__list li {
+  border-right: 1px solid #000;
+}
+#salons .salon__list li:last-of-type {
+  border-right: none;
+}
+
+/*-------------------------
+    SALONS
+-------------------------*/
+.salon__content {
+  box-sizing: border-box;
+}
+.salon__content .salons__thumb {
+  height: 74vh;
+}
+.salon__content .tophairterrace {
+  background-image: url(./../../images/top/tophairterrace.jpg);
 }/*# sourceMappingURL=main.css.map */

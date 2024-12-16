@@ -101,7 +101,7 @@
 
             </div>
         </section>
-        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1039215633?h=3dd358a76f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="simanoyadoya様 movie"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 
         <section id="salons" class=" pt-32">
             <h2 class="sec__ttl--big">SALONS</h2>
@@ -118,21 +118,21 @@
         </section>
     </div>
     <!-- フルページを使う準備 -->
-    <div class="section w-full h-screen bg-slate-100 salon__content">
-        <div class="salons__thumb bg w-full mb-5.3 tophairterrace slide slide01"></div>
-        <div class="flex">
-            <div class="salon__ttl">
+    <div class="section w-full h-screen bg-slate-100 salon__content slide slide1">
+        <div class="salons__thumb bg w-full mb-5.3 tophairterrace"></div>
+        <div class="flex justify-between">
+            <div class="salon__ttl ml-17">
                 <strong class="block font-normal text-3.9 mb-1.5">TOP HAIR TERRACE</strong>
-                <span class="block text-2 mb-6.3">トップヘア テラス</span>
+                <span class="block text-2 mb-6">トップヘア テラス</span>
                 <p class="text-2">in 知立</p>
             </div>
 
-            <div class="salon__info">
+            <div class="salon__info mr-5">
                 <dl class="flex">
                     <dt>住所</dt>
-                    <dd>
+                    <dd class="flex">
                         <span>〒472-0005 愛知県知立市新池3-102</span>
-                        <a href="" target="_blank"><img src="<?php echo get_tempalte__directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
+                        <a href="" target="_blank"><img src="<?php echo get_template_directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
                     </dd>
                 </dl>
                 <dl class="flex">
@@ -149,31 +149,83 @@
                         <a href="" class="salon__menu--list">HAIR</a>
                     </li>
                     <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+                        <a href="" class="salon__menu--list">SPA</a>
                     </li>
                     <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+                        <a href="" class="salon__menu--list">NAIL</a>
                     </li>
                     <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+                        <a href="" class="salon__menu--list">ESTHE</a>
                     </li>
                     <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+                        <a href="" class="salon__menu--list">EYELASH</a>
                     </li>
                     <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+                        <a href="" class="salon__menu--list">頭顔リリース</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">成人式</a>
                     </li>
                 </ul>
             </div>
+            <a href="" class="more absolute text-1.2 text-center text-black block">MORE</a>
         </div>
     </div>
-    <div class="section w-full h-screen">
-        <div class="slide slide02"></div>
-        
+
+    <div class="section w-full h-screen bg-slate-100 salon__content slide slide1">
+        <div class="salons__thumb bg w-full mb-5.3 tophairlounge"></div>
+        <div class="flex justify-between">
+            <div class="salon__ttl ml-17">
+                <strong class="block font-normal text-3.9 mb-1.5">TOP HAIR Lounge </strong>
+                <span class="block text-2 mb-6">トップヘア ラウンジ</span>
+                <p class="text-2">in 知立</p>
+            </div>
+
+            <div class="salon__info mr-5">
+                <dl class="flex">
+                    <dt>住所</dt>
+                    <dd class="flex">
+                        <span>〒472-0058 愛知県知立市上重原2-31</span>
+                        <a href="" target="_blank"><img src="<?php echo get_template_directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
+                    </dd>
+                </dl>
+                <dl class="flex">
+                    <dt>TEL</dt>
+                    <dd>0566-91-4511</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>定休日</dt>
+                    <dd>毎週月曜日</dd>
+                </dl>
+
+                <ul class="flex flex-wrap mt-3.6 justify-start">
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">HAIR</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">SPA</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">NAIL</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">ESTHE</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">EYELASH</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">頭顔リリース</a>
+                    </li>
+                    <li class=" mr-1">
+                        <a href="" class="salon__menu--list">成人式</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="" class="more absolute text-1.2 text-center text-black block">MORE</a>
+        </div>
     </div>
-    <div class="section w-full h-screen bg-red-600">
-        <div class="slide slide03"></div>
-    </div>
+
 
 </main>
 

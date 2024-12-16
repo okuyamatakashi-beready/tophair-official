@@ -260,7 +260,7 @@ textarea {
 }
 
 .salon__menu--list {
-  @apply rounded-3xl text-black text-center text-1 py-1 border-solid border border-black;
+  @apply rounded-full text-black text-center text-1 py-1 border-solid border border-black block w-full;
 }
 
 /*-------------------------
@@ -336,9 +336,45 @@ textarea {
 .salon__content {
   box-sizing: border-box;
 }
+.salon__content .fp-tableCell {
+  vertical-align: top;
+}
 .salon__content .salons__thumb {
   height: 74vh;
 }
 .salon__content .tophairterrace {
   background-image: url(./../../images/top/tophairterrace.jpg);
+}
+.salon__content .tophairlounge {
+  background-image: url(./../../images/top/tophairlounge.jpg);
+}
+.salon__content .salon__info {
+  width: 27%;
+}
+.salon__content .salon__info dl {
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.salon__content .salon__info dl dt {
+  margin-right: 18px;
+  width: 10%;
+}
+.salon__content .salon__info dl dd img {
+  margin-left: 8px;
+}
+.salon__content .salon__info ul li {
+  width: 30%;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+.salon__content a.more {
+  width: 70px;
+  border-bottom: 1px solid #000;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  padding-bottom: 6px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 30px;
 }/*# sourceMappingURL=main.css.map */

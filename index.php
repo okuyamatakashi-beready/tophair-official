@@ -25,11 +25,11 @@
         </div>
 
         <section id="concept" class=" pt-[30rem] w-full">
-            <div class="concept__container">
+            <div class="concept__container bg-white">
                 <div class="flex justify-between">
                     <div class="concept__img--first w-[84rem] bg pt-[112.2rem]"></div>
 
-                    <div class="concept__content pt-[10rem]">
+                    <div class="concept__content pt-[10rem] pb-24">
                         <h2 class=" text-[3rem] font-normal mb-[11.7rem] mr-[11.7rem]">CONCEPT</h2>
                         <strong class="block text-[4rem] font-normal mb-24">
                             健康でいて、美しく。<br>
@@ -226,6 +226,77 @@
         </div>
     </div>
 
+
+    <div class="section fp-auto-height slide">
+        <div id="menu" class="pt-12 w-4/5 mx-auto pb-24">
+            <div class="menu__wrap pt-66 bg relative">
+                <h2 class="menu__wrap--ttl text-5 font-normal text-white vertical__center">MENU</h2>
+                <div class="menu__wrap--list absolute top-36 right-0">
+                    <ul>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <div class="flex">
+                                    <p>HAIR</p>
+                                    <span>ヘア</span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <div class="flex">
+                                    <p>SPA</p>
+                                    <span>スパ</span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <div class="flex">
+                                    <p>NAIL</p>
+                                    <span>ネイル</span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <div class="flex">
+                                    <p>ESTHE</p>
+                                    <span>エステ</span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <div class="flex">
+                                    <p>EYELASH</p>
+                                    <span>アイ</span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <p>頭顔リリース</p>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="flex text-black">
+                                <p>成人式</p>
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section id="news"></section>
+    </div>
 
 </main>
 

@@ -21,5 +21,39 @@ function theme_enqueue_scripts() {
         filemtime(get_template_directory() . '/assets/js/sub.js'),
         true
     );
+    if (is_page('concept')) { // ページスラッグが 'about' の場合
+        wp_enqueue_style(
+            'concept-css',
+            get_template_directory_uri() . '/assets/css/dist/concept.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/concept.css')
+        );
+
+        // wp_enqueue_script(
+        //     'about-js',
+        //     get_template_directory_uri() . '/assets/js/about.js',
+        //     [],
+        //     filemtime(get_template_directory() . '/assets/js/about.js'),
+        //     true
+        // );
+    }
+    if (is_page('menu')) { // ページスラッグが 'about' の場合
+        wp_enqueue_style(
+            'menu-css',
+            get_template_directory_uri() . '/assets/css/dist/menu.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/menu.css')
+        );
+
+    }
+    if (is_page('about')) { // ページスラッグが 'about' の場合
+        wp_enqueue_style(
+            'about-css',
+            get_template_directory_uri() . '/assets/css/dist/about.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/about.css')
+        );
+
+    }
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');

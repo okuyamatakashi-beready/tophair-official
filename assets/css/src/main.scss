@@ -9,6 +9,7 @@
 /*-------------------------
     共通
 -------------------------*/
+
 .container_max {
     @apply w-[95%] mx-auto;
 }
@@ -243,3 +244,222 @@
         }
     }
 }
+
+/*-------------------------
+    NEWS
+-------------------------*/
+#news {
+    width: 74%;
+    margin: 17rem auto 0 auto;
+    h2 {
+        text-align: left;
+    }
+    dl {
+        border-top: 1px solid #000;
+        &:last-of-type {
+            border-bottom: 1px solid #000;
+        }
+        dt {
+            margin-bottom: 1.7rem;
+            span.time {
+                margin-right: 5rem;
+            }
+        }
+    }
+}
+
+/*-------------------------
+    GALLERY
+-------------------------*/
+#gallery {
+    padding-bottom: 36rem;
+    .gallery__bg {
+        background-image: url(./../../images/top/gallery.jpg);
+        padding-top: 160rem;
+        &--content {
+            width: 84%;
+            margin-right: auto;
+            margin-left: auto;
+            bottom: -30rem;
+            left: 0;
+            right: 0;
+            &--ttl {
+                ul {
+                    li{
+                        &:first-child {
+                            border-right: 1px solid #000;;
+                        }
+                    }
+                }
+            }
+        }
+        &--slider {
+            margin: 0 calc(50% - 42vw);
+            width: 92vw;
+            .swiper-slide {
+                width: 25%;
+                padding-top: 52rem;
+            }
+        }
+    }
+}
+
+/*-------------------------
+    studio
+-------------------------*/
+#studio {
+    .studio__container {
+        width: 74%;
+        background-image: url(./../../images/top/studio_bg.jpg);
+        h2 {
+            color: #fff;
+            line-height: 1;
+        }
+    }
+}
+
+
+/*-------------------------
+    studio
+-------------------------*/
+#recruit {
+    background: #E3DFDA;
+    .recruit__container {
+        width: 72%;
+    }
+    .recruit__content {
+        &--img {
+            background-image: url(./../../images/top/recruit_img.jpg);
+        }
+    }
+}
+
+/*-------------------------
+    whats
+-------------------------*/
+#whats {
+    .top {
+        height: 20rem;
+        overflow: hidden;
+        margin-top: -30rem;
+        &::before {
+            content: "";
+            width: 140vw;
+            height: 50rem;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0rem;
+            left: -18%;
+            right: 0;
+            margin: auto;
+            z-index: 10;
+        }
+    }
+    .whats__container {
+        width: 74%;
+        a {
+            .whats__img {
+                background-image: url(./../../images/top/company_bg.jpg);
+            }
+            h2 {
+                color: #fff;
+            }
+        }
+        &--text {
+            color: #767676;
+            letter-spacing: 0.15em;
+
+        }
+        &--slider {
+            margin: 0 calc(50% - 50vw);
+            width: 100vw;
+            overflow: hidden;
+            .swiper-wrapper {
+                transition-timing-function: linear;
+            }
+            img {
+                margin-right: 20rem;
+            }
+        }
+        small {
+            font-size: 10px;
+            color: #000000;
+            margin-left: 38rem;
+        }
+    }
+
+}
+
+/*-------------------------
+    footer
+-------------------------*/
+#footer {
+    
+    #contact {
+        background-image: url(./../../images/common/contact_bg.jpg);
+        a {
+            border: 1px solid #fff;
+            width: 420px;
+            
+            h2 {
+                color: #fff;
+                line-height: 1;
+                font-size: 3rem;
+            }
+        }
+    }
+    .footer__content {
+        background-color: #E3DFDA;
+        .footer__wrapper {
+            width: 87%;
+            h2 {
+                text-align: left;
+            }
+            &--link {
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                .sitemap {
+                    ul {
+                        width: 30%;
+                        li {
+                            margin-bottom: 3rem;
+                            width: 50%;
+                            a {
+                                font-size: 1.5rem;
+                                span {
+                                    font-family: "Noto Sans JP", sans-serif;
+                                }
+                            }
+                        }
+                    }
+                    .reserve {
+                        a {
+                            width: 360px;
+                            border: 1px solid #000;
+                            color: #000;
+                        }
+                    }
+                }
+                .info__content {
+                    width: 62%;
+                    &--address {
+                        width: 42%;
+                    }
+                    &--sns {
+                        p {
+                            padding-right: 2.5rem;
+                            margin-right: 2.5rem;
+                            border-right: 1px solid #000;;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*-------------------------
+    固定ページ共通
+-------------------------*/

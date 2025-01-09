@@ -12,9 +12,7 @@ the_post_thumbnail('large');
 
 function my_styles()  {
     // page-sample用のCSS
-    if ( is_page('') ) {
-      wp_enqueue_style( 'page_css', get_template_directory_uri() . '/scss/page/index.css');
-      }
+
     if ( is_page('works') ) {
       wp_enqueue_style( 'works_css', get_template_directory_uri() . '/scss/works/index.css');
       }
@@ -43,11 +41,7 @@ function my_styles()  {
       wp_enqueue_style( 'works_css', get_template_directory_uri() . '/scss/works/index.css');
       wp_enqueue_style( 'news_css', get_template_directory_uri() . '/scss/news/index.css');
       }
-    if ( is_page('concept') ) {
-      wp_enqueue_style( 'page_css', get_template_directory_uri() . '/scss/page/index.css');
-      wp_enqueue_style( 'works_css', get_template_directory_uri() . '/scss/works/index.css');
-      wp_enqueue_style( 'concept_css', get_template_directory_uri() . '/scss/concept/index.css');
-      }
+
     if ( is_page('reform') ) {
       wp_enqueue_style( 'page_css', get_template_directory_uri() . '/scss/page/index.css');
       wp_enqueue_style( 'works_css', get_template_directory_uri() . '/scss/works/index.css');

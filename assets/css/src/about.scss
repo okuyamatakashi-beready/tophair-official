@@ -1,0 +1,11 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#page__mv {
+    background-image: url(./../../images/about/about_mv.jpg);
+}

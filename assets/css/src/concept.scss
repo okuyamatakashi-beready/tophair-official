@@ -1,0 +1,135 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#page__mv {
+    background-image: url(./../../images/concept/concept_mv.jpg);
+}
+
+/*-------------------------
+    concept
+-------------------------*/
+
+#concept {
+    .concept__wrapper {
+        width: 69%;
+        z-index: 10;
+        h2 {
+            text-align: left;
+        }
+        p {
+            line-height: 2.5em;
+        }
+        figure {
+            width: 70%;
+            img {
+                width: 100%;
+            }
+        }
+        &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 21rem;
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -21rem;
+            margin: auto;
+        }
+    }
+    .concept__img {
+        width: 74%;
+        margin-left: auto;
+        padding-top: 165rem;
+        background-image: url(./../../images/concept/concept_img.jpg);
+        top: 0;
+        right: 0;
+    }
+}
+
+/*-------------------------
+    four_features
+-------------------------*/
+#four_features {
+    .features__container {
+        &--intro {
+            line-height: 2.6;
+        }
+    }
+    .features__wrapper {
+        width: 81%;
+        margin-left: 7.8%;
+        margin-right: 10.4%;
+        #global-menu {
+            position: sticky;
+            top: 10rem;
+            left: 0;
+            width: 16%;
+            height: 28rem;
+            li {
+                margin-bottom: 5.4rem;
+                a {
+                    color: #7F7F7F;
+                    font-size: 2rem;
+
+                }
+                &.active {
+                    a {
+                        color: #000;
+                    }
+                }
+            }
+        }
+        .features__list {
+            width: 84%;
+            &--img {
+                padding-top: 67.4rem;
+            }
+            .features__ttl {
+                width: 25%;
+            }
+            .number {
+                width: 74%;
+                &::before {
+                    content: "";
+                    width: 90%;
+                    height: 1px;
+                    background-color: #000;
+                    position: absolute;
+                    top: 1.8rem;
+                    margin: auto;
+                    right: 0;
+                }
+                span {
+                    letter-spacing: 0.15em;
+                }
+            }
+            #features01 {
+                .features__list--img {
+                    background-image: url(./../../images/concept/features01.jpg);
+                }
+            }
+            #features02 {
+                .features__list--img {
+                    background-image: url(./../../images/concept/features02.jpg);
+                }
+            }
+            #features03 {
+                .features__list--img {
+                    background-image: url(./../../images/concept/features03.jpg);
+                }
+            }
+            #features04 {
+                .features__list--img {
+                    background-image: url(./../../images/concept/features04.jpg);
+                }
+            }
+        }
+    }
+}

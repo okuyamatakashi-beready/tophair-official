@@ -295,9 +295,194 @@
             </div>
         </div>
 
-        <section id="news"></section>
+        <section id="news" class="pt-10 pb-10">
+            <div class="news__container ">
+                <h2 class="sec__ttl--big mb-5 text-left">
+                    NEWS
+                </h2> 
+                <dl class=" py-5">
+                    <dt class="flex ">
+                        <span class="time text-1.5 mr-5">2024.09.01</span>
+                        <span class="cat text-1.5">NEWS</span>
+                    </dt>
+                    <dd>
+                        <p class="text-2 text-black">ニュースタイトル０１</p>
+                    </dd>
+                </dl>
+                <dl class=" py-5">
+                    <dt class="flex">
+                        <span class="time text-1.5">2024.09.01</span>
+                        <span class="cat text-1.5">NEWS</span>
+                    </dt>
+                    <dd>
+                        <p class="text-2 text-black">ニュースタイトル０１</p>
+                    </dd>
+                </dl>
+                <dl class=" py-5">
+                    <dt class="flex">
+                        <span class="time text-1.5">2024.09.01</span>
+                        <span class="cat text-1.5">NEWS</span>
+                    </dt>
+                    <dd>
+                        <p class="text-2 text-black">ニュースタイトル０１</p>
+                    </dd>
+                </dl>
+                <a href="" class="button__type--a ml-auto mt-4.7">
+                    <div>
+                        <span>VIEW MORE</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="gallery" class="w-full">
+            <div class="gallery__bg w-full relative bg">
+                <div class="gallery__bg--content absolute">
+                    <div class="gallery__bg--content--ttl mb-6">
+                        <h2 class="sec__ttl--big mb-5">
+                            GALLERY
+                        </h2>
+                        <ul class="flex justify-center text-2">
+                            <li class=" pr-2">
+                                <p>HAIR</p>
+                            </li>
+                            <li class=" pl-2">
+                                <p>NAIL</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="gallery__bg--slider swiper">
+                        <div class="swiper-wrapper">
+                            
+                            <?php
+                            $paged = get_query_var('paged') ? get_query_var('paged') : 1 ;
+                            $args = array(
+                                'posts_per_page' => '6',
+                                'post_status' => 'publish',
+                                'paged' => $paged,
+                                'post_type' => 'tophair-gallery',
+                            );
+                            ?>
+                            <?php $my_query = new WP_Query( $args ); ?><!-- クエリの指定 -->
+
+                            <?php if ( $my_query->have_posts() ) :
+
+                            while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                            <?php 
+                                $tophair_img = get_field('tophair_img');
+                                if (!$tophair_img) {
+                                    error_log('tophair_img が取得できませんでした。ポストID: ' . get_the_ID());
+                                }
+                            ?>
+                            
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+                                <div class="swiper-slide bg "style="background-image: url(<?php echo $tophair_img;?>);"></div>
+
+
+                            <?php endwhile; ?>
+                            <?php endif; ?>
+                            <?php wp_reset_postdata(); ?>
+                        </div>
+                        <a href="" class="button__type--a ml-auto mt-4.7 mr-25">
+                            <div>
+                                <span>VIEW MORE</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="studio" class="pt-20 mb-21">
+            <a href="">
+                <div class="studio__container bg mx-auto pt-41 relative">
+                    <h2 class="sec__ttl--big text-white vertical__center">
+                        STUDIO
+                    </h2>
+                </div>
+            </a>
+        </section>
+
+        <section id="recruit" class="pt-16 pb-32">
+            <div class="recruit__container mx-auto">
+                <div class="recruit__content">
+                    <h2 class="sec__ttl--big mb-4">
+                        STUDIO
+                    </h2>
+                    <div class="recruit__content--img bg pt-70 mb-7"></div>
+                    <div class="recruit__content--text">
+                        <strong class=" block text-5 mb-4.7 font-normal">
+                            私より、私を<br>
+                            信じてくれる人がいる。
+                        </strong>
+                        <p class=" text-1.5 leading-loose">
+                            仕事には、人生が出る。<br>
+                            たとえば、家族とのひとときも、パートナーとのボタンの掛け違いも<br>
+                            職場での表情や振る舞いになってあらわれる。<br>
+                            だとすれば、人生が良くなれば、仕事も良くなっていく。<br>
+                            だからTOPHAIRは、人生の話をします。<br>
+                            一人ひとりがより良い人生を生き、より良い仕事ができるように。
+                        </p>
+                        <a href="" class="button__type--a ml-auto mt-4.7">
+                            <div>
+                                <span>VIEW MORE</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="whats" class="pt-20 relative w-full pb-11">
+            <div class="top w-full relative"></div>
+            <div class="whats__container mx-auto">
+                <h2 class="sec__ttl--big mb-4">
+                    WHAT’S “TOP”?
+                </h2>
+                <a href="" class="block">
+                    <div class="whats__img bg mb-12 pt-70 relative">
+                        <div class="whats__img--text vertical__center">
+                            <h2 class="sec__ttl--big text-white font-normal">
+                                COMPANY
+                            </h2>
+                        </div>
+                    </div>
+                </a>
+
+                <p class="text-3 whats__container--text text-center mb-6">CREATIVE & HEALTHY WELLBEING</p>
+
+                <div class="whats__container--slider whats-swiper">
+                    <div class="swiper-wrapper">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/images/top/whats_logo.svg" alt="" class="swiper-slide">
+                    </div>
+                </div>
+                <small class=" block mt-6 leading-loose">
+                    The essence of TOP HAIR’s service is “people”.<br>
+                    We are attractive as human beings, like people, and can sincerely appreciate them.<br>
+                    We believe that we can provide the best hospitality because these feelings overflow from our words and behavior.<br>
+                    We believe in the potential of each TOP HAIR staff member and each person, and are trying to nurture their human ability,<br>
+                    not only to improve their technical skills, but also to improve their life itself.
+                </small>
+            </div>
+        </section>
     </div>
+    
 
 </main>
+
 
 <?php get_template_part('templates/footer'); ?>

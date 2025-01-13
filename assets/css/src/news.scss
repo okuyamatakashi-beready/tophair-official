@@ -1,0 +1,60 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#header {
+    background-color: #fff;
+    position: sticky;
+}
+#toggle div span {
+    background-color: #000;
+}
+
+#page-news {
+    background-color: #F8F8F8;
+    .news__container {
+        width: 68.75%;
+        .flex {
+            .sidebar {
+                width: 22.7%;
+                .sidebar__content {
+                    ul {
+                        li {
+                            a {
+                                font-size: 1.5rem;
+                                color: #000;
+                                font-family: "Noto Sans JP", sans-serif;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .news__content {
+                width: 77.27%;
+                dl {
+                    border-top: 1px solid #000;
+                    &:last-of-type {
+                        border-bottom: 1px solid #000;
+                    }
+                    dt {
+                        span {
+                            font-family: "Noto Sans JP", sans-serif;
+                        }
+                    }
+                    dd {
+                        a {
+                            h3 {
+                                font-family: "Noto Sans JP", sans-serif;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

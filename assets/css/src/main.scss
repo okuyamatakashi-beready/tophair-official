@@ -70,12 +70,37 @@
     z-index: 1000;
     .container_max {
         nav {
+            min-width: 880px;
             ul {
                 li {
-                    @apply text-[1.2rem];
+                    font-size: 12px;
                     display: block;
                     font-family: "Noto Sans JP", sans-serif;
                 }
+            }
+            .nav__sns {
+                border-right: 1px solid #fff;
+                border-left: 1px solid #fff;
+            }
+        }
+    }
+}
+
+#toggle {
+    position: fixed;
+    top: 4.6rem;
+    right: 5%;
+    height: 8px;
+    z-index: 5000;
+    div {
+        span {
+            width: 30px;
+            background-color: #fff;
+            height: 1px;
+            position: absolute;
+            display: block;
+            &:nth-of-type(2) {
+                transform: translateY(8px);
             }
         }
     }

@@ -55,5 +55,23 @@ function theme_enqueue_scripts() {
         );
 
     }
+    if (is_page('news')) { // ページスラッグが 'news' の場合
+        wp_enqueue_style(
+            'news-css',
+            get_template_directory_uri() . '/assets/css/dist/news.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/news.css')
+        );
+
+    }
+    if (is_page('gallery')) { // ページスラッグが 'gallery' の場合
+        wp_enqueue_style(
+            'gallery-css',
+            get_template_directory_uri() . '/assets/css/dist/gallery.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/gallery.css')
+        );
+
+    }
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');

@@ -5,11 +5,12 @@
 "scripts": {
   "dev": "npm-run-all --parallel watch:scss:all watch:css:all",
   "build": "npm-run-all --parallel build:scss:all build:css:all",
-  "build:scss:all": "sass assets/css/src/main.scss:assets/css/src/main.css assets/css/src/concept.scss:assets/css/src/concept.css assets/css/src/menu.scss:assets/css/src/menu.css assets/css/src/about.scss:assets/css/src/about.css --no-source-map --style=compressed",
-  "build:css:all": "postcss assets/css/src/main.css -o assets/css/dist/main.css && postcss assets/css/src/concept.css -o assets/css/dist/concept.css && postcss assets/css/src/menu.css -o assets/css/dist/menu.css && postcss assets/css/src/about.css -o assets/css/dist/about.css",
-  "watch:scss:all": "sass --watch assets/css/src/main.scss:assets/css/src/main.css assets/css/src/concept.scss:assets/css/src/concept.css assets/css/src/menu.scss:assets/css/src/menu.css assets/css/src/about.scss:assets/css/src/about.css --no-source-map",
-  "watch:css:all": "postcss assets/css/src/main.css -o assets/css/dist/main.css --watch & postcss assets/css/src/concept.css -o assets/css/dist/concept.css --watch & postcss assets/css/src/menu.css -o assets/css/dist/menu.css --watch & postcss assets/css/src/about.css -o assets/css/dist/about.css --watch"
+  "build:scss:all": "sass assets/css/src/main.scss:assets/css/src/main.css assets/css/src/concept.scss:assets/css/src/concept.css assets/css/src/menu.scss:assets/css/src/menu.css assets/css/src/about.scss:assets/css/src/about.css assets/css/src/news.scss:assets/css/src/news.css assets/css/src/gallery.scss:assets/css/src/gallery.css --no-source-map --style=compressed",
+  "build:css:all": "postcss assets/css/src/main.css -o assets/css/dist/main.css && postcss assets/css/src/concept.css -o assets/css/dist/concept.css && postcss assets/css/src/menu.css -o assets/css/dist/menu.css && postcss assets/css/src/about.css -o assets/css/dist/about.css && postcss assets/css/src/news.css -o assets/css/dist/news.css && postcss assets/css/src/gallery.css -o assets/css/dist/gallery.css",
+  "watch:scss:all": "sass --watch assets/css/src/main.scss:assets/css/src/main.css assets/css/src/concept.scss:assets/css/src/concept.css assets/css/src/menu.scss:assets/css/src/menu.css assets/css/src/about.scss:assets/css/src/about.css assets/css/src/news.scss:assets/css/src/news.css assets/css/src/gallery.scss:assets/css/src/gallery.css --no-source-map",
+  "watch:css:all": "postcss assets/css/src/main.css -o assets/css/dist/main.css --watch & postcss assets/css/src/concept.css -o assets/css/dist/concept.css --watch & postcss assets/css/src/menu.css -o assets/css/dist/menu.css --watch & postcss assets/css/src/about.css -o assets/css/dist/about.css --watch & postcss assets/css/src/news.css -o assets/css/dist/news.css --watch & postcss assets/css/src/gallery.css -o assets/css/dist/gallery.css --watch"
 },
+
 
 
   "repository": {

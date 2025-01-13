@@ -16,9 +16,7 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -164,8 +162,7 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -272,10 +269,35 @@ textarea {
   left: 0;
   z-index: 1000;
 }
+#header .container_max nav {
+  min-width: 880px;
+}
 #header .container_max nav ul li {
-  @apply text-[1.2rem];
+  font-size: 12px;
   display: block;
   font-family: "Noto Sans JP", sans-serif;
+}
+#header .container_max nav .nav__sns {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+#toggle {
+  position: fixed;
+  top: 4.6rem;
+  right: 5%;
+  height: 8px;
+  z-index: 5000;
+}
+#toggle div span {
+  width: 30px;
+  background-color: #fff;
+  height: 1px;
+  position: absolute;
+  display: block;
+}
+#toggle div span:nth-of-type(2) {
+  transform: translateY(8px);
 }
 
 /*-------------------------
@@ -606,4 +628,4 @@ textarea {
 
 /*-------------------------
     固定ページ共通
--------------------------*//*# sourceMappingURL=main.css.map */
+-------------------------*/

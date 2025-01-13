@@ -9,3 +9,88 @@
 #page__mv {
     background-image: url(./../../images/about/about_mv.jpg);
 }
+.about__ttl {
+    width: 68%;
+}
+.about__intro {
+    width: 68%;
+    p {
+        line-height: 2em;
+    }
+}
+.about__area {
+    background-image: url(./../../images/about/area_pc.svg);
+    height: 170rem;
+    .nagoya {
+        top: 16.4rem;
+        left: 113rem;
+    }
+    .kariya {
+        top: 28.5rem;
+        left: 116.4rem;
+    }
+    .chiryu {
+        top: 42.5rem;
+        left: 146.6rem;
+    }
+    .anjo {
+        top: 57.9rem;
+        left: 126.8rem;
+    }
+    .company__info {
+        padding-top: 94.7rem;
+        h2 {
+            text-align: left;
+        }
+        &--img {
+            width: 50%;
+            padding-top: 68.7rem;
+            background-image: url(./../../images/about/company_img.jpg);
+        }
+        &--content {
+            padding-left: 20rem;
+            box-sizing: border-box;
+            width: 50%;
+            dl {
+                font-size: 2rem;
+                dt {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+#history {
+    .histopry__container {
+        width: 68%;
+        figure {
+            width: 100%;
+            img {
+                width: 90%;
+                margin-left: 6.5%;
+            }
+        }
+    }
+}
+
+#recruit {
+    .top {
+        overflow: hidden;
+        height: 20rem;
+        &::after {
+            background-color: #fff;
+            border-radius: 50%;
+            content: "";
+            height: 50rem;
+            left: -18%;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 140vw;
+            z-index: 10;
+        }
+    }
+
+}

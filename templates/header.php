@@ -35,7 +35,7 @@
 		<nav class="flex justify-between w-[45%]">
 			<ul class="flex w-[45.7%] min-w-[670px]">
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white">コンセプト</a>
+					<a href="/concept" class="text-white">コンセプト</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="" class="text-white ">トップヘアの特徴</a>
@@ -44,7 +44,7 @@
 					<a href="" class="text-white ">サロン</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">メニュー</a>
+					<a href="/menu" class="text-white ">メニュー</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="" class="text-white ">ニュース</a>
@@ -56,7 +56,7 @@
 					<a href="" class="text-white ">リクルート</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">会社概要</a>
+					<a href="/about" class="text-white ">会社概要</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="" class="text-white ">コンタクト</a>

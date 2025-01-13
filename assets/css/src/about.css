@@ -16,9 +16,7 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -164,8 +162,7 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -210,4 +207,87 @@ textarea {
 @tailwind utilities;
 #page__mv {
   background-image: url(./../../images/about/about_mv.jpg);
-}/*# sourceMappingURL=about.css.map */
+}
+
+.about__ttl {
+  width: 68%;
+}
+
+.about__intro {
+  width: 68%;
+}
+.about__intro p {
+  line-height: 2em;
+}
+
+.about__area {
+  background-image: url(./../../images/about/area_pc.svg);
+  height: 170rem;
+}
+.about__area .nagoya {
+  top: 16.4rem;
+  left: 113rem;
+}
+.about__area .kariya {
+  top: 28.5rem;
+  left: 116.4rem;
+}
+.about__area .chiryu {
+  top: 42.5rem;
+  left: 146.6rem;
+}
+.about__area .anjo {
+  top: 57.9rem;
+  left: 126.8rem;
+}
+.about__area .company__info {
+  padding-top: 94.7rem;
+}
+.about__area .company__info h2 {
+  text-align: left;
+}
+.about__area .company__info--img {
+  width: 50%;
+  padding-top: 68.7rem;
+  background-image: url(./../../images/about/company_img.jpg);
+}
+.about__area .company__info--content {
+  padding-left: 20rem;
+  box-sizing: border-box;
+  width: 50%;
+}
+.about__area .company__info--content dl {
+  font-size: 2rem;
+}
+.about__area .company__info--content dl dt {
+  width: 20%;
+}
+
+#history .histopry__container {
+  width: 68%;
+}
+#history .histopry__container figure {
+  width: 100%;
+}
+#history .histopry__container figure img {
+  width: 90%;
+  margin-left: 6.5%;
+}
+
+#recruit .top {
+  overflow: hidden;
+  height: 20rem;
+}
+#recruit .top::after {
+  background-color: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 50rem;
+  left: -18%;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 140vw;
+  z-index: 10;
+}

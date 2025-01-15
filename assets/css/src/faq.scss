@@ -1,0 +1,60 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.faq__container {
+    width: 74%;
+}
+.faq__content {
+    &--item{
+        border-bottom: 1px solid #000;
+
+        dt {
+            box-sizing: border-box;
+            cursor: pointer;
+            p {
+                width: 6rem;
+                font-family: "Noto Serif JP";
+            }
+            span {
+                width: 77%;
+            }
+            &::before {
+                content: "";
+                width: 20px;
+                height: 1px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background-color: #000;
+            }
+            &::after {
+                content: "";
+                width: 1px;
+                height: 20px;
+                position: absolute;
+                right: 10px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background-color: #000;
+                opacity: 1;
+                transition: all 0.3s;
+            }
+            &.open {
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+        dd {
+            box-sizing: border-box;
+            display: none;
+        }
+    }
+}

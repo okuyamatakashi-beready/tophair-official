@@ -67,3 +67,14 @@ $(document).ready(function(){
         $(this).find("dt").toggleClass("open");
     });
 });
+
+/*
+	FAQ スライドトグル
+*/
+
+$(document).ready(function(){
+    $(".faq__content--item").click(function(){
+        $(this).find("dd").slideToggle();
+        $(this).find("dt").toggleClass("open");
+    });
+});

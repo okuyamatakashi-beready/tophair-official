@@ -43,7 +43,7 @@
                             <a href=""><span class="pr-1.5">ー</span>ニュース</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>よくある質問</a>
+                            <a href="/faq"><span class="pr-1.5">ー</span>よくある質問</a>
                         </li>
                     </ul>
 

@@ -16,7 +16,9 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -162,7 +164,8 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  appearance: button;
+  -moz-appearance: button;
+       appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -215,4 +218,4 @@ textarea {
 .gallery__content ul li:nth-of-type(2) {
   border-right: 1px solid #000;
   border-left: 1px solid #000;
-}
+}/*# sourceMappingURL=gallery.css.map */

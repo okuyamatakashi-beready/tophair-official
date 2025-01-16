@@ -118,114 +118,92 @@
         </section>
     </div>
     <!-- フルページを使う準備 -->
+    <?php
+        $paged = get_query_var('paged') ? get_query_var('paged') : 1 ;
+        $args = array(
+            'posts_per_page' => '12',
+            'post_status' => 'publish',
+            'paged' => $paged,
+            'post_type' => 'tophair-salon',
+        );
+        ?>
+        <?php $my_query = new WP_Query( $args ); ?><!-- クエリの指定 -->
+
+    <?php if ( $my_query->have_posts() ) :
+
+        while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+        <?php 
+            $top_img = get_field('top_img');
+            $city = get_field('city');
+            $furigana = get_field('furigana');
+            $salon_img = get_field('salon_img');
+            $concept = get_field('concept');
+            $salon_img02 = get_field('salon_img02');
+            $salon_info = get_field('salon_info');
+        ?>
     <div class="section w-full h-screen bg-slate-100 salon__content slide slide1">
-        <div class="salons__thumb bg w-full mb-5.3 tophairterrace"></div>
+        <div class="salons__thumb bg w-full mb-5.3" style="background-image: url(<?php echo $top_img;?>)"></div>
         <div class="flex justify-between">
             <div class="salon__ttl ml-17">
-                <strong class="block font-normal text-3.9 mb-1.5">TOP HAIR TERRACE</strong>
-                <span class="block text-2 mb-6">トップヘア テラス</span>
-                <p class="text-2">in 知立</p>
+                <strong class="block font-normal text-3.9 mb-1.5">TOP HAIR <?php the_title(); ?></strong>
+                <span class="block text-2 mb-6"><?php echo $furigana;?></span>
+                <p class="text-2">in <?php echo $city;?></p>
             </div>
 
             <div class="salon__info mr-5">
+            <?php if( have_rows('salon_info') ): ?>
+                <?php while( have_rows('salon_info') ): the_row();
+                    $address = get_sub_field('address');
+                    $map = get_sub_field('map');
+                    $tel = get_sub_field('tel');
+                    $holiday = get_sub_field('holiday');
+                ?>
                 <dl class="flex">
                     <dt>住所</dt>
                     <dd class="flex">
-                        <span>〒472-0005 愛知県知立市新池3-102</span>
-                        <a href="" target="_blank"><img src="<?php echo get_template_directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
+                        <span>〒472-0005 <?php echo $address;?></span>
+                        <a href="<?php echo $map;?>" target="_blank"><img src="<?php echo get_template_directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
                     </dd>
                 </dl>
                 <dl class="flex">
                     <dt>TEL</dt>
-                    <dd>0566-55-2647</dd>
+                    <dd><?php echo $tel;?></dd>
                 </dl>
                 <dl class="flex">
                     <dt>定休日</dt>
-                    <dd>毎週月曜日</dd>
+                    <dd><?php echo $holiday;?></dd>
                 </dl>
+            <?php endwhile;?>
+            <?php endif; ?>
 
-                <ul class="flex flex-wrap mt-3.6 justify-start">
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
+            <ul class="flex flex-wrap mt-3.6 justify-start">
+                <?php
+                // 現在の投稿に関連付けられた `tophair-menu` のタームを取得
+                $terms = get_the_terms(get_the_ID(), 'tophair_menu');
+                if ($terms && !is_wp_error($terms)) :
+                    foreach ($terms as $term) :
+                        ?>
+                        <li class="mr-1">
+                            <div class="salon__menu--list"><?php echo esc_html($term->name); ?></div>
+                        </li>
+                    <?php
+                    endforeach;
+                else :
+                    ?>
+                    <li class="mr-1">
+                        <span class="salon__menu--list">メニュー情報がありません</span>
                     </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">SPA</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">NAIL</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">ESTHE</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">EYELASH</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">頭顔リリース</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">成人式</a>
-                    </li>
-                </ul>
+                <?php endif; ?>
+            </ul>
+
             </div>
-            <a href="" class="more absolute text-1.2 text-center text-black block">MORE</a>
+            <a href="<?php the_permalink(); ?>" class="more absolute text-1.2 text-center text-black block">MORE</a>
         </div>
     </div>
 
-    <div class="section w-full h-screen bg-slate-100 salon__content slide slide1">
-        <div class="salons__thumb bg w-full mb-5.3 tophairlounge"></div>
-        <div class="flex justify-between">
-            <div class="salon__ttl ml-17">
-                <strong class="block font-normal text-3.9 mb-1.5">TOP HAIR Lounge </strong>
-                <span class="block text-2 mb-6">トップヘア ラウンジ</span>
-                <p class="text-2">in 知立</p>
-            </div>
-
-            <div class="salon__info mr-5">
-                <dl class="flex">
-                    <dt>住所</dt>
-                    <dd class="flex">
-                        <span>〒472-0058 愛知県知立市上重原2-31</span>
-                        <a href="" target="_blank"><img src="<?php echo get_template_directory_uri();?>/assets/images/top/salon_map_icon.svg" alt=""></a>
-                    </dd>
-                </dl>
-                <dl class="flex">
-                    <dt>TEL</dt>
-                    <dd>0566-91-4511</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>定休日</dt>
-                    <dd>毎週月曜日</dd>
-                </dl>
-
-                <ul class="flex flex-wrap mt-3.6 justify-start">
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">HAIR</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">SPA</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">NAIL</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">ESTHE</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">EYELASH</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">頭顔リリース</a>
-                    </li>
-                    <li class=" mr-1">
-                        <a href="" class="salon__menu--list">成人式</a>
-                    </li>
-                </ul>
-            </div>
-            <a href="" class="more absolute text-1.2 text-center text-black block">MORE</a>
-        </div>
-    </div>
-
+    <?php endwhile; ?>
+    <?php endif; ?>
+    <?php wp_reset_postdata(); ?>	
 
     <div class="section fp-auto-height slide">
         <div id="menu" class="pt-12 w-4/5 mx-auto pb-24">

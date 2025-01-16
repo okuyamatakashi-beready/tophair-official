@@ -1,0 +1,19 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ul.cat__list {
+    width: 45%;
+    li {
+        width: 13.5%;
+        font-size: 10px;
+        margin-bottom: 10px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,8 +1,8 @@
-// jQuery(function () {
-//     jQuery('#fullpage').fullpage({
-//         scrollOverflow:true,
-//     });
-// });
+jQuery(function () {
+    jQuery('#fullpage').fullpage({
+        scrollOverflow:true,
+    });
+});
 
 /*
 	ギャラリーのスライダー

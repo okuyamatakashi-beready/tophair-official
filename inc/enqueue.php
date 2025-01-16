@@ -82,5 +82,14 @@ function theme_enqueue_scripts() {
         );
 
     }
+    if (is_singular('tophair-salon')) { // ページスラッグが 'faq' の場合
+        wp_enqueue_style(
+            'tophair-salon-css',
+            get_template_directory_uri() . '/assets/css/dist/tophair-salon.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/tophair-salon.css')
+        );
+
+    }
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');

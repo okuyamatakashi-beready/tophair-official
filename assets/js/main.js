@@ -33,6 +33,19 @@ const whats_swiper = new Swiper(".whats-swiper", {
         delay: 0, // 途切れなくループ
     },
 });
+/*
+	salon_swiperのスライダー
+*/
+const salon_swiper = new Swiper(".salon__swiper", {
+    loop: true, // ループさせる
+    speed:1000, // 少しゆっくり(デフォルトは300)
+    slidesPerView: 2.1,
+    centeredSlides : true,
+    initialSlide: 1,
+    autoplay: {
+        delay: 1500,
+    },
+});
 
 
 /*

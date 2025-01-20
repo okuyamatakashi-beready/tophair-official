@@ -218,4 +218,23 @@ ul.cat__list li {
 }
 ul.cat__list li:last-of-type {
   margin-right: 0;
+}
+
+.salon__menu--list {
+  color: #274875;
+  border-color: #274875;
+}
+
+.salon__wrapper .salon__slider {
+  overflow: hidden;
+}
+.salon__wrapper .salon__slider .swiper-wrapper .swiper-slide {
+  padding-top: 69.2rem;
+}
+
+.salon__solo--img {
+  width: 58%;
+}
+.salon__solo--img .solo__img {
+  padding-top: 68.9rem;
 }/*# sourceMappingURL=tophair-salon.css.map */

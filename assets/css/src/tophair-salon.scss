@@ -17,3 +17,24 @@ ul.cat__list {
         }
     }
 }
+.salon__menu--list {
+    color: #274875;
+    border-color: #274875;
+}
+.salon__wrapper {
+    .salon__slider {
+        overflow: hidden;
+        .swiper-wrapper {
+            .swiper-slide {
+                
+                padding-top: 69.2rem;
+            }
+        }
+    }
+}
+.salon__solo--img {
+    width: 58%;
+    .solo__img {
+        padding-top: 68.9rem;
+    }
+}

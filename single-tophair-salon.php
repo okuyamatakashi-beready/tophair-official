@@ -26,7 +26,7 @@
             foreach ($terms as $term) :
                 ?>
                 <li class="mr-1">
-                    <div class="salon__menu--list"><?php echo esc_html($term->name); ?></div>
+                    <div class="salon__menu--list text-[10px]"><?php echo esc_html($term->name); ?></div>
                 </li>
             <?php
             endforeach;
@@ -38,10 +38,45 @@
         <?php endif; ?>
     </ul>
 
-    <div class="salon__slider swiper">
+    <div class="salon__slider salon__swiper w-full">
         <div class="swiper-wrapper">
-            <div class="swiper-slide pt-69" style="background-image: url(<?php echo $salon_img;?>);"></div>
+            <?php if( have_rows('salon_img') ): ?>
+                <?php while( have_rows('salon_img') ): the_row();
+                    $salon_img_item = get_sub_field('salon_img_item');
+                ?>
+                    <div class="swiper-slide pt-69 bg" style="background-image: url(<?php echo $salon_img_item;?>);"></div>
+                <?php endwhile;?>
+            <?php endif; ?>
+            <?php if( have_rows('salon_img') ): ?>
+                <?php while( have_rows('salon_img') ): the_row();
+                    $salon_img_item = get_sub_field('salon_img_item');
+                ?>
+                    <div class="swiper-slide pt-69 bg" style="background-image: url(<?php echo $salon_img_item;?>);"></div>
+                <?php endwhile;?>
+            <?php endif; ?>
+
         </div>
+    </div>
+
+    <div class="salon__concept pt-27 w-full pb-21 relative">
+        <div class="concept__wrapper">
+            <?php if( have_rows('concept') ): ?>
+                <?php while( have_rows('concept') ): the_row();
+                    $concept_catch = get_sub_field('concept_catch');
+                    $concept_text = get_sub_field('concept_text');
+                ?>
+                    <div class="concept__ttl">
+                        <span class="text-center block text-2 mb-5">SALON CONCEPT</span>
+                        <strong class="block text-center text-5 mb-7 font-normal"><?php echo $concept_catch;?></strong>
+                        <p class="text-center leading-loose text-2 block "><?php echo $concept_text;?></p>
+                    </div>
+                <?php endwhile;?>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <div class="salon__solo--img mx-auto pb-38">
+        <div class="bg solo__img" style="background-image: url(<?php echo $salon_img02;?>)"></div>
     </div>
 </div>
 

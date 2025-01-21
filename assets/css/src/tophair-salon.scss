@@ -73,3 +73,51 @@ ul.cat__list {
         }
     }
 }
+#infomation {
+    width: 74%;
+    &::after {
+        content: "";
+        width: 1px;
+        height: 10rem;
+        position: absolute;
+        bottom: -11rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #000;
+    }
+    .info__content {
+        width: 50%;
+        dl {
+            font-size: 2rem;
+            dt {
+                width: 20%;
+            }
+            dd {
+                width: 80%;
+                dl {
+                    margin-bottom: 2rem;
+                    dt {
+                        width: 20%;
+                    }
+                    dd {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+    iframe {
+        width: 50%;
+    }
+}
+#reserve {
+    a.button {
+        width: 520px;
+        font-size: 3rem;
+        text-align: center;
+        border-radius: 50px;
+        border: 1px solid #000;
+        padding: 1.7rem 0;
+    }
+}

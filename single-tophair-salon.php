@@ -209,13 +209,98 @@
         </div>
     </div>
 
-    <div id="infomation" class="pt-15 w-4\/5">
+    <div id="infomation" class="mx-auto pt-15 w-4\/5 mb-10 relative">
         <h2 class="sec__ttl--big mb-8">
             INFOMATION
         </h2>
-        <div class="info__container">
+        <div class="info__container flex items-start">
+            <?php if( have_rows('salon_info') ): ?>
+                <?php while( have_rows('salon_info') ): the_row();
+                    $address = get_sub_field('address');
+                    $map = get_sub_field('map');
+                    $iframe = get_sub_field('iframe');
+                    $tel = get_sub_field('tel');
+                    $business_time1 = get_sub_field('business_time1');
+                    $holiday = get_sub_field('holiday');
+                    $parking = get_sub_field('parking');
+                    $tel_time = get_sub_field('tel_time');
+                    $reserved_link = get_sub_field('reserved_link');
+                ?>
+            <div class="info__content pt-4">
+
+                <dl class="flex mb-6">
+                
+                    <dt>住所</dt>
+                    <dd>
+                        <a href="<?php echo $map;?>" class="flex">
+                            <span><?php echo $address;?></span>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/salon/map-icon.svg" alt="">
+                        </a>
+                    </dd>
+                </dl>
+                <dl class="flex mb-6">
+                    <dt>TEL</dt>
+                    <dd><?php echo $tel;?></dd>
+                </dl>
+                <dl class="flex mb-6">
+                    <dt>営業時間</dt>
+                    
+                    <dd>
+                        <?php if( have_rows('business_time1') ): ?>
+                            <?php while( have_rows('business_time1') ): the_row();
+                            ?>
+                            <?php if( have_rows('business_sub_time') ): ?>
+                                <?php while( have_rows('business_sub_time') ): the_row();
+                                    $business1 = get_sub_field('business1');
+                                    $time = get_sub_field('time');
+                                ?>
+                        <dl class="flex">
+                            <dt><?php echo $business1;?></dt>
+                            <dd><?php echo $time;?></dd>
+                        </dl>
+                        <?php endwhile;?>
+                        <?php endif; ?>
+                        <?php endwhile;?>
+                        <?php endif; ?>
+                    </dd>
+                </dl>
+                <dl class="flex mb-6">
+                    <dt>定休日</dt>
+                    <dd>
+                        <p><?php echo $holiday;?></p>
+                    </dd>
+                </dl>
+                <dl class="flex mb-6">
+                    <dt>駐車場</dt>
+                    <dd><?php echo $parking;?></dd>
+                </dl>
+
+            </div>
+
+            <?php echo $iframe;?>
+            <?php endwhile;?>
+            <?php endif; ?>
             
         </div>
+    </div>
+
+    <div id="reserve" class="pt-9 pb-15">
+        <h2 class="sec__ttl--big mb-6">
+            RESERVE
+        </h2>
+        <p class="text-center text-2 mb-6">お電話または、WEB予約（24時間受付）よりご予約を承っております。</p>
+        <?php if( have_rows('salon_info') ): ?>
+                <?php while( have_rows('salon_info') ): the_row();
+                    $tel = get_sub_field('tel');
+                    $tel_time = get_sub_field('tel_time');
+                    $reserved_link = get_sub_field('reserved_link');
+                ?>
+            <a href="tel:<?php echo $tel;?>" class="button mb-1.6 mx-auto block text-2.5"><?php echo $tel;?></a>
+            <p class="text-center text-2 mb-3">受付時間<?php echo $tel_time;?></p>
+            <a href="<?php echo $reserved_link;?>" target="_blank" class="button mb-1.6 mx-auto block text-2.5">WEB</a>
+            <p class="text-center text-2">24時間受付</p>
+            <?php endwhile;?>
+            <?php endif; ?>
     </div>
 
 </div>

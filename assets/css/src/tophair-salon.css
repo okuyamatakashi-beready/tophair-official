@@ -264,4 +264,52 @@ ul.cat__list li:last-of-type {
 }
 #salon__staff .staff__container .staff__content--item .info small {
   font-size: 14px;
+}
+
+#infomation {
+  width: 74%;
+}
+#infomation::after {
+  content: "";
+  width: 1px;
+  height: 10rem;
+  position: absolute;
+  bottom: -11rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #000;
+}
+#infomation .info__content {
+  width: 50%;
+}
+#infomation .info__content dl {
+  font-size: 2rem;
+}
+#infomation .info__content dl dt {
+  width: 20%;
+}
+#infomation .info__content dl dd {
+  width: 80%;
+}
+#infomation .info__content dl dd dl {
+  margin-bottom: 2rem;
+}
+#infomation .info__content dl dd dl dt {
+  width: 20%;
+}
+#infomation .info__content dl dd dl dd {
+  width: 80%;
+}
+#infomation iframe {
+  width: 50%;
+}
+
+#reserve a.button {
+  width: 520px;
+  font-size: 3rem;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid #000;
+  padding: 1.7rem 0;
 }/*# sourceMappingURL=tophair-salon.css.map */

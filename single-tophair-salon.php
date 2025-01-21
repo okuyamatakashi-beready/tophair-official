@@ -75,9 +75,149 @@
         </div>
     </div>
 
-    <div class="salon__solo--img mx-auto pb-38">
+    <div class="salon__solo--img mx-auto pb-38 relative">
         <div class="bg solo__img" style="background-image: url(<?php echo $salon_img02;?>)"></div>
     </div>
+
+    <div id="salon__staff" >
+        <div class="staff__container">
+            <h2 class="sec__ttl--big mb-7">
+                STAFF
+            </h2>
+
+            <div class="staff__content mx-auto flex justify-between items-start">
+            <?php
+            $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+            // 現在の投稿のスラッグを取得
+            $current_post_slug = get_post_field('post_name', get_the_ID());
+
+            $args = array(
+                'posts_per_page' => '6',
+                'post_status' => 'publish',
+                'paged' => $paged,
+                'post_type' => 'tophair_staff',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'tophair_staff_salon', // タクソノミー名
+                        'field' => 'slug',                 // スラッグで一致させる
+                        'terms' => $current_post_slug,     // 現在の投稿スラッグ
+                    ),
+                ),
+            );
+
+            $my_query = new WP_Query($args); // クエリの実行
+
+            if ($my_query->have_posts()) :
+                while ($my_query->have_posts()) : $my_query->the_post();
+                    // 投稿の内容を出力
+                    ?>
+                    <?php 
+                        $staff_job = get_field('staff_job');
+                        $name = get_field('name');
+                        $roma = get_field('roma');
+                        $staff_img = get_field('staff_img');
+                    ?>
+                <div class="staff__content--item mb-10">
+                    <div class="thumb bg mb-2.4" style="background-image: url(<?php echo $staff_img;?>);"></div>
+                    <div class="flex info items-end justify-between">
+                        <p class="text-2.5">
+                            <span class="block text-1.4 mb-1.8"><?php echo $staff_job;?></span>
+                            <?php echo $name;?>
+                        </p>
+                        <small class="block"><?php echo $roma;?></small>
+                    </div>
+                </div>
+
+                <?php
+                endwhile;
+
+            else :
+                echo '<p>該当するスタッフ情報が見つかりません。</p>';
+            endif;
+
+            wp_reset_postdata(); // クエリのリセット
+            ?>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu" class="pt-12 w-4/5 mx-auto pb-24">
+        <div class="menu__wrap pt-66 bg relative">
+            <h2 class="menu__wrap--ttl text-5 font-normal text-white vertical__center">MENU</h2>
+            <div class="menu__wrap--list absolute top-36 right-0">
+                <ul>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <div class="flex">
+                                <p>HAIR</p>
+                                <span>ヘア</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <div class="flex">
+                                <p>SPA</p>
+                                <span>スパ</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <div class="flex">
+                                <p>NAIL</p>
+                                <span>ネイル</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <div class="flex">
+                                <p>ESTHE</p>
+                                <span>エステ</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <div class="flex">
+                                <p>EYELASH</p>
+                                <span>アイ</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <p>頭顔リリース</p>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" class="flex text-black">
+                            <p>成人式</p>
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="infomation" class="pt-15 w-4\/5">
+        <h2 class="sec__ttl--big mb-8">
+            INFOMATION
+        </h2>
+        <div class="info__container">
+            
+        </div>
+    </div>
+
 </div>
 
 

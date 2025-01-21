@@ -237,4 +237,31 @@ ul.cat__list li:last-of-type {
 }
 .salon__solo--img .solo__img {
   padding-top: 68.9rem;
+}
+.salon__solo--img::after {
+  content: "";
+  width: 1px;
+  height: 10rem;
+  position: absolute;
+  bottom: 14rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #000;
+}
+
+#salon__staff .staff__container .staff__content {
+  width: 58%;
+}
+#salon__staff .staff__container .staff__content--item {
+  width: 30%;
+}
+#salon__staff .staff__container .staff__content--item .thumb {
+  padding-top: 42.5rem;
+}
+#salon__staff .staff__container .staff__content--item .info p {
+  line-height: 1;
+}
+#salon__staff .staff__container .staff__content--item .info small {
+  font-size: 14px;
 }/*# sourceMappingURL=tophair-salon.css.map */

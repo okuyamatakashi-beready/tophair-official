@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 		
 		
-		<title>リフォームワン株式会社</title>
+		<title>tophair official</title>
 
 
 		<!-- CSS -->
@@ -38,7 +38,7 @@
 					<a href="/concept" class="text-white">コンセプト</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">トップヘアの特徴</a>
+					<a href="/#features" class="text-white ">トップヘアの特徴</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="" class="text-white ">サロン</a>

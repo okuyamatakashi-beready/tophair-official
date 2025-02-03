@@ -148,7 +148,7 @@
     <div class="recruit__container mx-auto pb-12">
         <div class="recruit__content">
             <h2 class="sec__ttl--big mb-4">
-                STUDIO
+                RECRUIT
             </h2>
             <div class="recruit__content--img bg pt-70 mb-7"></div>
             <div class="recruit__content--text">

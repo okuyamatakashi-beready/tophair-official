@@ -231,41 +231,76 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 
+function cptui_register_my_taxes_tophair_menu() {
 
-function add_custom_date_options_to_cf7($form) {
-  // 現在の投稿 ID を取得
-  $post_id = get_the_ID();
+	/**
+	 * Taxonomy: メニュー.
+	 */
 
-  // 3つのカスタムフィールドから日時のデータを取得
-  $date1 = get_post_meta($post_id, 'time', true);
-  $date2 = get_post_meta($post_id, 'time_day2', true);
-  $date3 = get_post_meta($post_id, 'time_day3', true);
+	$labels = [
+		"name" => __( "メニュー", "custom-post-type-ui" ),
+		"singular_name" => __( "メニュー", "custom-post-type-ui" ),
+	];
 
-  // オプションを生成
-  $options = '';
-  if ($date1) {
-      $options .= '<option value="' . esc_attr($date1) . '">' . esc_html($date1) . '</option>';
-  }
-  if ($date2) {
-      $options .= '<option value="' . esc_attr($date2) . '">' . esc_html($date2) . '</option>';
-  }
-  if ($date3) {
-      $options .= '<option value="' . esc_attr($date3) . '">' . esc_html($date3) . '</option>';
-  }
-
-  // セレクトボックスを生成してフォームに挿入
-  $select_box = '<select name="dayday" id="dayday">';
-  $select_box .= '<option value="">選択してください</option>'; // 初期値のオプション
-  $select_box .= $options;
-  $select_box .= '</select>';
-
-  // フォームの特定のプレースホルダーをセレクトボックスに置き換える
-  $form = str_replace('[dynamic-date-options]', $select_box, $form);
-
-  return $form;
+	
+	$args = [
+		"label" => __( "メニュー", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'tophair_menu', 'with_front' => true, ],
+		"show_admin_column" => false,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "tophair_menu",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => false,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "tophair_menu", [ "tophair-salon" ], $args );
 }
+add_action( 'init', 'cptui_register_my_taxes_tophair_menu' );
 
-add_filter('wpcf7_form_elements', 'add_custom_date_options_to_cf7');
 
+
+function cptui_register_my_taxes_tophair_staff_salon() {
+
+	/**
+	 * Taxonomy: サロン名.
+	 */
+
+	$labels = [
+		"name" => __( "サロン名", "custom-post-type-ui" ),
+		"singular_name" => __( "サロン名", "custom-post-type-ui" ),
+	];
+
+	
+	$args = [
+		"label" => __( "サロン名", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'tophair_staff_salon', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => false,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "tophair_staff_salon",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => false,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "tophair_staff_salon", [ "tophair_staff" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes_tophair_staff_salon' );
 
 

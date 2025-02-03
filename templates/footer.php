@@ -16,31 +16,31 @@
                 <div class="sitemap justify-between flex">
                     <ul class="flex ml-12 flex-wrap">
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>コンセプト</a>
+                            <a href="/concept"><span class="pr-1.5">ー</span>コンセプト</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>ギャラリー</a>
+                            <a href="/gallery"><span class="pr-1.5">ー</span>ギャラリー</a>
                         </li>
                         <li>
                             <a href=""><span class="pr-1.5">ー</span>トップヘアの特徴</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>リクルート</a>
+                            <a href="/recruit"><span class="pr-1.5">ー</span>リクルート</a>
                         </li>
                         <li>
                             <a href=""><span class="pr-1.5">ー</span>サロン</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>会社概要</a>
+                            <a href="/about"><span class="pr-1.5">ー</span>会社概要</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>メニュー</a>
+                            <a href="/menu"><span class="pr-1.5">ー</span>メニュー</a>
                         </li>
                         <li>
                             <a href=""><span class="pr-1.5">ー</span>コンタクト</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>ニュース</a>
+                            <a href="/news"><span class="pr-1.5">ー</span>ニュース</a>
                         </li>
                         <li>
                             <a href="/faq"><span class="pr-1.5">ー</span>よくある質問</a>
@@ -52,7 +52,7 @@
                             <span class="py-2.4 block text-center text-1.5">リクルート ｜ 採用情報</span>
                         </a>
                         <a href="" class="ft__reserve block">
-                            <span class="py-2.4 block text-center text-1.5">リクルート ｜ 採用情報</span>
+                            <span class="py-2.4 block text-center text-1.5">リザーブ ｜ サロン予約</span>
                         </a>
                     </div>
                 </div>

@@ -42,7 +42,7 @@
 
             <div class="news__content mb-24">
                 <div class="content">
-                    <dl class="py-5 w-full">
+                    <dl class="news-item py-5 w-full">
                         <dt class="flex mb-2 justify-start">
                             <span class="time mr-2.6 text-1.5">2024.09.01</span>
                             <span class="cat text-1.5">NEWS</span>
@@ -64,26 +64,26 @@
             
         </div>
     </div>
-
+    
 
     <main class="news-container">
-
-    <!-- 記事詳細（Ajaxで読み込む） -->
-    <aside id="news-detail" class="news-detail">
-        <div class="news-content">
-            <button class="close-btn">×</button>
-            <div id="news-content-area">
-                <div class="ttl">
-                    <span class="time">2024.09.01</span>
-                    <h4>記事のタイトル</h4>
-                </div>
-                <div class="detail__content">
-                    
+        
+        <!-- 記事詳細（Ajaxで読み込む） -->
+        <aside id="news-detail" class="news-detail">
+            <div class="news-content">
+                <button class="close-btn"><img src="<?php echo get_template_directory_uri();?>/assets/images/gallery/modal-close.svg" alt="" class=""></button>
+                <div id="news-content-area">
+                    <div class="ttl">
+                        <span class="time">2024.09.01</span>
+                        <h4>記事のタイトル</h4>
+                    </div>
+                    <div class="detail__content">
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-    </aside>
-</main>
+        </aside>
+    </main>
 
 <script>
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";

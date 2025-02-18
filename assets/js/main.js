@@ -93,7 +93,9 @@ $(document).ready(function(){
 });
 
 
-
+/*
+	ニュース記事のajax
+*/
 document.addEventListener("DOMContentLoaded", function () {
     const newsContainer = document.querySelector(".news__content");
     const newsDetail = document.querySelector("#news-detail");
@@ -183,5 +185,121 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeBtn.addEventListener("click", function () {
         newsDetail.classList.remove("active");
+    });
+});
+
+
+/*
+	ニュースのオーバーレイ
+*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const newsDetail = document.querySelector("#news-detail");
+    const overlay = document.querySelector(".overlay");
+    const closeBtn = document.querySelector(".close-btn");
+
+    console.log("✅ Overlay element:", overlay);
+
+    if (!overlay) {
+        console.error("❌ ERROR: `.overlay` が見つかりません！HTMLを確認してください！");
+        return;
+    }
+
+    function showNewsDetail() {
+        console.log("🔥 showNewsDetail() called");
+        newsDetail.classList.add("active");
+
+        // 🔥 `setTimeout()` でブラウザレンダリングを確実に適用
+        setTimeout(() => {
+            overlay.classList.add("active");
+            console.log("✅ overlay classes:", overlay.classList);
+        }, 10);
+    }
+
+    function hideNewsDetail() {
+        console.log("🔥 hideNewsDetail() called");
+        newsDetail.classList.remove("active");
+        overlay.classList.remove("active");
+        console.log("✅ overlay classes after hide:", overlay.classList);
+    }
+
+    // 🔥 `.news-item` に `click` イベントを適用
+    document.addEventListener("click", function (event) {
+        const item = event.target.closest(".news-item"); // 🔥 クリックされた要素の親を確認
+        if (item) {
+            console.log("🔥 Article clicked: Showing overlay");
+            showNewsDetail();
+        }
+    });
+
+    closeBtn.addEventListener("click", hideNewsDetail);
+    overlay.addEventListener("click", hideNewsDetail);
+});
+
+
+/*
+	ギャラリーページのモーダルウィンドウ
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach(item => {
+        item.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal-id");
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add("active");
+            }
+        });
+    });
+
+    // すべてのモーダルを取得
+    const modals = document.querySelectorAll(".modal");
+
+    modals.forEach(modal => {
+        const closeButton = modal.querySelector(".modal-close");
+        closeButton.addEventListener("click", function () {
+            modal.classList.remove("active");
+        });
+
+        // モーダル外をクリックしたら閉じる
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.classList.remove("active");
+            }
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.querySelector(".overlay");
+    console.log("Overlay element:", overlay); // 🔥 これが `null` ならHTML側の `.overlay` が存在しない！
+
+    if (!overlay) {
+        console.error("❌ ERROR: .overlay が見つかりません！");
+        return;
+    }
+});
+
+/*
+	スムーススクロール
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".smooth-scroll").forEach(function(anchor) {
+        anchor.addEventListener("click", function(e) {
+            const targetId = this.getAttribute("href").split("#")[1];
+            const targetElement = document.getElementById(targetId);
+
+            // スクロール先の要素が存在し、トップページにいる場合のみスムーススクロール
+            if (targetElement && (window.location.pathname === "/" || window.location.pathname === "<?php echo parse_url(home_url(), PHP_URL_PATH); ?>")) {
+                e.preventDefault(); // デフォルトの動作をキャンセル
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100, // ヘッダー固定時は適宜調整
+                    behavior: "smooth"
+                });
+            }
+        });
     });
 });

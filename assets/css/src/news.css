@@ -286,6 +286,7 @@ textarea {
 
 .news-detail {
   position: fixed;
+  z-index: 9999;
   top: 0;
   right: -100%;
   width: 63%;
@@ -293,20 +294,46 @@ textarea {
   height: 100%;
   background: white;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease-in-out;
+  transition: right 1s ease-in-out;
   overflow-y: auto;
   padding-top: 19rem;
   padding-left: 10rem;
   padding-right: 20rem;
+  padding-bottom: 13rem;
 }
 .news-detail.active {
   right: 0;
 }
+.news-detail .news-content #news-content-area .ttl {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 40px;
+}
+.news-detail .news-content #news-content-area .ttl span.time {
+  font-size: 15px;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  display: block;
+}
+.news-detail .news-content #news-content-area .ttl h4 {
+  font-size: 2.8rem;
+}
+.news-detail .news-content #news-content-area .detail__content {
+  margin-bottom: 60px;
+}
+.news-detail .news-content #news-content-area .detail__content img {
+  margin-bottom: 40px;
+}
+.news-detail .news-content #news-content-area .detail__content p {
+  font-size: 2rem;
+  line-height: 1.5em;
+  margin-bottom: 40px;
+}
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 10rem;
+  right: 20rem;
   font-size: 20px;
   border: none;
   background: none;
@@ -332,4 +359,22 @@ textarea {
 }
 .news-navigation button:hover {
   background: #005bb5;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
 }/*# sourceMappingURL=news.css.map */

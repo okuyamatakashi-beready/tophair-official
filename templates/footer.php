@@ -22,13 +22,13 @@
                             <a href="/gallery"><span class="pr-1.5">ー</span>ギャラリー</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>トップヘアの特徴</a>
+                            <a href="/#features"><span class="pr-1.5">ー</span>トップヘアの特徴</a>
                         </li>
                         <li>
                             <a href="/recruit"><span class="pr-1.5">ー</span>リクルート</a>
                         </li>
                         <li>
-                            <a href=""><span class="pr-1.5">ー</span>サロン</a>
+                            <a href="/#salon"><span class="pr-1.5">ー</span>サロン</a>
                         </li>
                         <li>
                             <a href="/about"><span class="pr-1.5">ー</span>会社概要</a>

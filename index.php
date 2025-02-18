@@ -305,7 +305,7 @@
                         <p class="text-2 text-black">ニュースタイトル０１</p>
                     </dd>
                 </dl>
-                <a href="" class="button__type--a ml-auto mt-4.7">
+                <a href="/news" class="button__type--a ml-auto mt-4.7">
                     <div>
                         <span>VIEW MORE</span>
                     </div>
@@ -367,7 +367,7 @@
                             <?php endif; ?>
                             <?php wp_reset_postdata(); ?>
                         </div>
-                        <a href="" class="button__type--a ml-auto mt-4.7 mr-25">
+                        <a href="/gallery" class="button__type--a ml-auto mt-4.7 mr-25">
                             <div>
                                 <span>VIEW MORE</span>
                             </div>
@@ -424,7 +424,7 @@
                 <h2 class="sec__ttl--big mb-4">
                     WHAT’S “TOP”?
                 </h2>
-                <a href="" class="block">
+                <a href="/company" class="block">
                     <div class="whats__img bg mb-12 pt-70 relative">
                         <div class="whats__img--text vertical__center">
                             <h2 class="sec__ttl--big text-white font-normal">
@@ -459,7 +459,7 @@
         </section>
         <footer id="footer" class="w-full relative bg">
             <div id="contact" class="pt-35 bg relative">
-                <a href="" class="block absolute vertical__center">
+                <a href="/contact" class="block absolute vertical__center">
                     <h2 class="sec__ttl--big text-white pt-2 pb-1.6">
                         CONTACT
                     </h2>
@@ -481,7 +481,7 @@
                                     <a href="/gallery"><span class="pr-1.5">ー</span>ギャラリー</a>
                                 </li>
                                 <li>
-                                    <a href=""><span class="pr-1.5">ー</span>トップヘアの特徴</a>
+                                    <a href="/#features"><span class="pr-1.5">ー</span>トップヘアの特徴</a>
                                 </li>
                                 <li>
                                     <a href="/recruit"><span class="pr-1.5">ー</span>リクルート</a>
@@ -496,7 +496,7 @@
                                     <a href="/menu"><span class="pr-1.5">ー</span>メニュー</a>
                                 </li>
                                 <li>
-                                    <a href=""><span class="pr-1.5">ー</span>コンタクト</a>
+                                    <a href="/contact"><span class="pr-1.5">ー</span>コンタクト</a>
                                 </li>
                                 <li>
                                     <a href="/news"><span class="pr-1.5">ー</span>ニュース</a>

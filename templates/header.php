@@ -27,6 +27,7 @@
 		<?php wp_head();?>
 	</head>
 <body>
+<div class="overlay"></div>
 <header id="header" class="w-full">
 	<div class="container_max flex py-[3.4rem] justify-between">
 		<a href="/" class="header_logo w-[160px] ">
@@ -41,7 +42,7 @@
 					<a href="/#features" class="text-white ">トップヘアの特徴</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">サロン</a>
+					<a href="/#salons" class="text-white ">サロン</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="/menu" class="text-white ">メニュー</a>

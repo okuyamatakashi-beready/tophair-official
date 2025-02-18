@@ -27,6 +27,7 @@
 		<?php wp_head();?>
 	</head>
 <body>
+<div class="overlay"></div>
 <header id="header" class="w-full">
 	<div class="container_max flex py-[3.4rem] justify-between">
 		<a href="/" class="header_logo w-[160px] ">

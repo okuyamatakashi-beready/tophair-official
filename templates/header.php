@@ -42,7 +42,7 @@
 					<a href="/#features" class="text-white ">トップヘアの特徴</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/#salons" class="text-white ">サロン</a>
+					<a href="/#salonsz" class="text-white ">サロン</a>
 				</li>
 				<li class="pr-[2.8rem]">
 					<a href="/menu" class="text-white ">メニュー</a>
@@ -99,6 +99,141 @@
 		</nav>
 	</div>
 </header>
+
+<div class="navigation">
+	<div class="navigation__wrapper">
+		<div class="nav__ttl">
+			<div class="flex">
+				<a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt=""></a>
+				<ul class="sns">
+					<li>
+						<a href="" class="mr-2.4">
+							<svg id="グループ_41" data-name="グループ 41" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+								<defs>
+									<clipPath id="clip-path">
+									<rect id="長方形_105" data-name="長方形 105" width="12" height="12" fill="#fff"/>
+									</clipPath>
+								</defs>
+								<g id="グループ_40" data-name="グループ 40" clip-path="url(#clip-path)">
+									<path id="パス_32" data-name="パス 32" d="M6,1.081c1.6,0,1.792.006,2.424.035a3.32,3.32,0,0,1,1.114.207,1.859,1.859,0,0,1,.69.449,1.859,1.859,0,0,1,.449.69,3.32,3.32,0,0,1,.207,1.114c.029.633.035.822.035,2.425s-.006,1.792-.035,2.425a3.32,3.32,0,0,1-.207,1.114,1.987,1.987,0,0,1-1.139,1.139,3.32,3.32,0,0,1-1.114.207c-.633.029-.822.035-2.424.035s-1.792-.006-2.425-.035a3.32,3.32,0,0,1-1.114-.207,1.859,1.859,0,0,1-.69-.449,1.859,1.859,0,0,1-.449-.69,3.321,3.321,0,0,1-.207-1.114C1.086,7.792,1.08,7.6,1.08,6s.006-1.792.035-2.425a3.321,3.321,0,0,1,.207-1.114,1.859,1.859,0,0,1,.449-.69,1.859,1.859,0,0,1,.69-.449,3.32,3.32,0,0,1,1.114-.207C4.207,1.087,4.4,1.081,6,1.081M6,0C4.37,0,4.165.007,3.525.036A4.4,4.4,0,0,0,2.069.315a2.941,2.941,0,0,0-1.063.692A2.941,2.941,0,0,0,.314,2.07,4.4,4.4,0,0,0,.035,3.526C.006,4.166,0,4.37,0,6S.006,7.834.035,8.474A4.4,4.4,0,0,0,.314,9.93a2.941,2.941,0,0,0,.692,1.063,2.941,2.941,0,0,0,1.063.692,4.4,4.4,0,0,0,1.456.279C4.165,11.993,4.37,12,6,12s1.834-.007,2.474-.036a4.4,4.4,0,0,0,1.456-.279A3.068,3.068,0,0,0,11.684,9.93a4.4,4.4,0,0,0,.279-1.456C11.992,7.834,12,7.63,12,6s-.007-1.834-.036-2.474a4.4,4.4,0,0,0-.279-1.456,2.942,2.942,0,0,0-.692-1.063A2.941,2.941,0,0,0,9.929.315,4.4,4.4,0,0,0,8.473.036C7.833.007,7.629,0,6,0" transform="translate(0.001 0)" fill="#fff"/>
+									<path id="パス_33" data-name="パス 33" d="M125.636,122.556a3.081,3.081,0,1,0,3.081,3.081,3.081,3.081,0,0,0-3.081-3.081m0,5.081a2,2,0,1,1,2-2,2,2,0,0,1-2,2" transform="translate(-119.636 -119.637)" fill="#fff"/>
+									<path id="パス_34" data-name="パス 34" d="M357.606,87.935a.72.72,0,1,1-.72-.72.72.72,0,0,1,.72.72" transform="translate(-347.683 -85.138)" fill="#fff"/>
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="" class="">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10.269" height="12" viewBox="0 0 10.269 12">
+								<defs>
+									<clipPath id="clip-path">
+									<rect id="長方形_106" data-name="長方形 106" width="10.269" height="12" transform="translate(0 0)" fill="#fff"/>
+									</clipPath>
+								</defs>
+								<g id="グループ_44" data-name="グループ 44" transform="translate(0 -0.005)">
+									<g id="グループ_43" data-name="グループ 43" transform="translate(0 0.005)" clip-path="url(#clip-path)">
+									<path id="パス_35" data-name="パス 35" d="M10.267,4.86q-.147.014-.3.015a3.2,3.2,0,0,1-2.68-1.449V8.359A3.646,3.646,0,1,1,3.646,4.713c.076,0,.151.007.225.012v1.8A1.87,1.87,0,0,0,3.646,6.5a1.861,1.861,0,0,0,0,3.722A1.906,1.906,0,0,0,5.581,8.383L5.6,0H7.318a3.2,3.2,0,0,0,2.951,2.858v2" transform="translate(0 -0.005)" fill="#fff"/>
+									</g>
+								</g>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="nav__content">
+			<div class="flex">
+				<div class="left">
+					<ul class="flex">
+						<li>
+							<a href="">コンセプト</a>
+						</li>
+						<li>
+							<a href="">ギャラリー</a>
+						</li>
+						<li>
+							<a href="">トップヘアの特徴</a>
+						</li>
+						<li>
+							<a href="">リクルート</a>
+						</li>
+						<li>
+							<a href="">サロン</a>
+						</li>
+						<li>
+							<a href="">会社概要</a>
+						</li>
+						<li>
+							<a href="">メニュー</a>
+						</li>
+						<li>
+							<a href="">コンタクト</a>
+						</li>
+						<li>
+							<a href="">ニュース</a>
+						</li>
+						<li>
+							<a href="">よくある質問</a>
+						</li>
+					</ul>
+
+					<div id="reserve" class="pt-9 pb-15">
+						<h2 class="sec__ttl--big mb-6">
+							RESERVE
+						</h2>
+						<p class="text-center text-2 mb-6">お電話または、WEB予約（24時間受付）よりご予約を承っております。</p>
+						<?php if( have_rows('salon_info') ): ?>
+								<?php while( have_rows('salon_info') ): the_row();
+									$tel = get_sub_field('tel');
+									$tel_time = get_sub_field('tel_time');
+									$reserved_link = get_sub_field('reserved_link');
+								?>
+							<a href="tel:<?php echo $tel;?>" class="button mb-1.6 mx-auto block text-2.5"><?php echo $tel;?></a>
+							<p class="text-center text-2 mb-3">受付時間<?php echo $tel_time;?></p>
+							<a href="<?php echo $reserved_link;?>" target="_blank" class="button mb-1.6 mx-auto block text-2.5">WEB</a>
+							<p class="text-center text-2">24時間受付</p>
+							<?php endwhile;?>
+							<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="right">
+					<ul class="flex">
+					<?php
+					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+					$args = array(
+						'posts_per_page' => '6',
+						'post_status' => 'publish',
+						'paged' => $paged,
+						'post_type' => 'tophair_salon',
+					);
+
+					$my_query = new WP_Query($args); // クエリの実行
+
+					if ($my_query->have_posts()) :
+						while ($my_query->have_posts()) : $my_query->the_post();
+							// 投稿の内容を出力
+							?>
+						<li>
+							<a href="<?php the_permalink(); ?>">
+								<div class="thumb bg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+							</a>
+							<h3><?php the_title();?></h3>
+						</li>
+						<?php
+							endwhile;
+							else :
+								echo '<p>該当するスタッフ情報が見つかりません。</p>';
+							endif;
+							wp_reset_postdata(); // クエリのリセット
+						?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div id="toggle">
 	<div class="relative">

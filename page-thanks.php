@@ -1,11 +1,72 @@
-<footer id="footer" class="w-full relative bg">
-    <div id="contact" class="pt-35 bg relative">
-        <a href="" class="block absolute vertical__center">
-            <h2 class="sec__ttl--big text-white pt-2 pb-1.6">
-                CONTACT
-            </h2>
-        </a>
+<?php get_template_part('templates/header'); ?>
+<div class="contact">
+    <div class="faq__container mx-auto pt-20 pb-15">
+        <h2 class="sec__ttl--big mb-8 text-center">
+            CONTACT
+        </h2>
+        <div class="ttl mb-15">
+            <p class="mb-10">
+                トップヘアーに関するお問い合わせはこちらのフォームから承ります。<br>
+                【必須】は入力必須項目です。ご記入漏れのないようにお願い致します。
+            </p>
+
+            <ul class="states flex justify-center">
+                <li>入力</li>
+                <li class="active">確認</li>
+                <li>完了</li>
+            </ul>
+
+            <div class="form__wrapper mx-auto confirm__wrapper">
+                <?php echo do_shortcode('[contact-form-7 id="1476" title="tophair オフィシャルサイト確認フォーム"]'); ?>
+                <!-- <dl class="flex">
+                    <dt>【必須】個人/法人</dt>
+                    <dd>[select* kojin "個人" "法人"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】お問い合わせ店舗</dt>
+                    <dd>[checkbox checkbox-521 class:salon use_label_element "TOP HAIR TERRACE" "Lounge 知立" "TOP HAIR HILLS" "Garden Villa. 安城" "spa&relaxation 安城" "MIKAWA ANJO 安城" "Avenue 刈谷" "spa＆resort 鳴海" "HONTEN 刈谷" "わからない"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】お名前</dt>
+                    <dd>[text* namae placeholder "例) 田中 太郎"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】メールアドレス</dt>
+                    <dd>[email* email-265 placeholder "例) xxxxx@sample.co.jp"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】郵便番号</dt>
+                    <dd>[text* address placeholder "例) 000-0000"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】ご住所</dt>
+                    <dd>[text* address02 placeholder "例) 愛知県○○市○○○○0-00"]</dd>
+                </dl>
+                <dl class="flex">
+                    <dt>【必須】お電話番号</dt>
+                    <dd>[tel* tel-525 placeholder "例) 0120-000-000"]</dd>
+                </dl>
+                <dl class="flex items-start">
+                    <dt>【必須】お問い合わせ内容</dt>
+                    <dd>[textarea* naiyo]</dd>
+                </dl>
+
+                <div class="policy">
+                    <p><a href="/policy">プライバシーポリシー</a>をお読みいただき、同意の上送信してください。</p>
+                    <p>[acceptance acceptance-314 class:accept optional] 個人情報取扱について同意します [/acceptance]</p>
+                </div>
+
+                <div class="send">
+                    [submit class:send "確認する"][multistep multistep-45 first_step "confirm"]
+                </div> -->
+
+            </div>
+        </div>
+
     </div>
+</div>
+
+<footer id="footer" class="w-full relative bg">
 
     <div class="footer__content pt-10 pb-5">
         <div class="footer__wrapper mx-auto">

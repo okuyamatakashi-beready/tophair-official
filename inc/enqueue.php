@@ -82,6 +82,15 @@ function theme_enqueue_scripts() {
         );
 
     }
+    if (is_page(['contact', 'confirm', 'thanks'])) { // ページスラッグが 'contact', 'confirm', 'thanks' の場合
+        wp_enqueue_style(
+            'contact-css',
+            get_template_directory_uri() . '/assets/css/dist/contact.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/dist/contact.css')
+        );
+    }
+
     if (is_singular('tophair-salon')) { // ページスラッグが 'faq' の場合
         wp_enqueue_style(
             'tophair-salon-css',

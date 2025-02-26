@@ -10,7 +10,7 @@
                 Your browser does not support the video tag.
             </video>
 
-            <div class="mv_catch absolute top-[40rem] right-[13rem]">
+            <!-- <div class="mv_catch absolute top-[40rem] right-[13rem]">
                 <strong class="text-[4rem] leading-normal mb-[3.7rem] text-white block font-normal">
                     健康でいて、美しく。<br>
                     理想へ導くウェルビーイングサロン
@@ -19,7 +19,7 @@
                     一過性の美しいではない、安全、安心のもとに成立する<br>
                     「健康」をベースにクリエイティブしていきます。
                 </p>
-            </div>
+            </div> -->
 
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt="" class="absolute bottom-0 w-[70%] left-0 right-0 m-auto">
         </div>

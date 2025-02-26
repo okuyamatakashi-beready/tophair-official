@@ -1,0 +1,109 @@
+@use "./variables";
+@use "./reset";
+@use "./mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.contact {
+    .ttl {
+        p {
+            font-size: 2rem;
+            line-height: 2em;
+            text-align: center;
+        }
+        ul {
+            margin-bottom: 15rem;
+            li {
+                font-size: 2rem;
+                letter-spacing: 0.1em;
+                width: 110px;
+                color: #adadad;
+                text-align: center;
+                &:nth-child(2) {
+                    border-left: 1px solid #000;
+                    border-right: 1px solid #000;
+                }
+                &.active {
+                    color: #000;
+                }
+            }
+        }
+        .form__wrapper {
+            width: 920px;
+            dl {
+                margin-bottom: 7rem;
+                font-size: 2rem;
+                letter-spacing: 0.1em;
+                dt {
+                    width: 30%;
+                    padding: 10px 0;
+                    text-align: left;
+                    p {
+                        text-align: left;
+                    }
+                }
+                dd {
+                    width: 70%;
+                    input,select,textarea {
+                        background-color: #F8F8F8;
+                        font-size: 2rem;
+                        color: #000;
+                        padding: 10px 20px;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                    label {
+                        input {
+                            width: auto;
+                        }
+                    }
+                    p {
+                        .wpcf7-list-item {
+                            width: 40%;
+                            text-align: left;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+            .send {
+                input.send {
+                    font-size: 2rem;
+                    text-align: center;
+                    background-color: #E3DFDA;
+                    width: 480px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    padding: 3rem 0;
+                    border-radius: 50px;
+                    letter-spacing: 0.5em;
+                    margin-top: 6rem;
+                    input {
+                        display: block;
+                        texst-aliogn: center;
+                        
+
+
+                    }
+                }
+            }
+        }
+        .confirm__wrapper {
+            dl {
+                border-bottom: 1px dashed #000;
+                margin-bottom: 1rem;
+                dd {
+                    padding: 10px 20px;
+                    p {
+                        text-align: left;
+                        padding: 0;
+                    }
+                }
+            }
+            .policy {
+                display: none;
+            }
+        }
+    }
+}

@@ -16,9 +16,7 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -164,8 +162,7 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -264,6 +261,34 @@ textarea {
 }
 
 /*-------------------------
+    アニメーション
+-------------------------*/
+.fadeUpTrigger {
+  opacity: 0;
+}
+
+.box {
+  opacity: 0;
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*-------------------------
     header
 -------------------------*/
 #header {
@@ -271,6 +296,11 @@ textarea {
   top: 0;
   left: 0;
   z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out;
+}
+#header.scrolled {
+  background-color: #fff;
 }
 #header .container_max nav {
   min-width: 880px;
@@ -288,8 +318,9 @@ textarea {
 #toggle {
   position: fixed;
   top: 4.6rem;
-  right: 5%;
-  height: 8px;
+  right: 2%;
+  height: 20px;
+  width: 40px;
   z-index: 5000;
 }
 #toggle div span {
@@ -303,6 +334,248 @@ textarea {
   transform: translateY(8px);
 }
 
+.navigation {
+  width: 100vw;
+  z-index: 9999;
+  top: 0;
+  right: -100%;
+  transition: right 0.8s ease-in-out;
+}
+.navigation.active {
+  right: 0;
+}
+.navigation img.close {
+  position: absolute;
+  top: 4.7rem;
+  right: 4.9rem;
+}
+.navigation::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: left 0.2s ease-in-out 0.2s;
+}
+.navigation.active::before {
+  left: 0;
+}
+.navigation .navigation__wrapper {
+  width: 90%;
+  height: 100svh;
+  margin-left: auto;
+  background-color: #274875;
+  padding-top: 18rem;
+  padding-right: 20rem;
+  padding-left: 20rem;
+  padding-bottom: 15rem;
+}
+.navigation .navigation__wrapper .nav__ttl {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 3.7rem;
+  margin-bottom: 8rem;
+}
+.navigation .navigation__wrapper .nav__ttl ul.sns li {
+  margin-right: 6rem;
+}
+.navigation .navigation__wrapper .nav__ttl ul.sns li:last-child {
+  margin-right: 0;
+}
+.navigation .navigation__wrapper .nav__ttl ul.sns li a {
+  width: 28px;
+  display: block;
+}
+.navigation .navigation__wrapper .nav__ttl ul.sns li a svg {
+  width: 28px;
+  height: 28px;
+}
+.navigation .navigation__wrapper .nav__content .flex .left {
+  width: 35%;
+}
+.navigation .navigation__wrapper .nav__content .flex .left ul {
+  flex-wrap: wrap;
+  margin-bottom: 5.5rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .left ul li {
+  width: 45%;
+  margin-bottom: 2.5rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .left ul li a {
+  color: #fff;
+  font-size: 1.8rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .left .reserve {
+  width: 77%;
+}
+.navigation .navigation__wrapper .nav__content .flex .left .reserve h2 {
+  font-size: 3rem;
+  color: #fff;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .left .reserve p {
+  font-size: 14px;
+  color: #fff;
+}
+.navigation .navigation__wrapper .nav__content .flex .left .reserve a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #274875;
+  border-radius: 50px;
+  padding: 1rem 0 0.7rem 0;
+  background-color: #fff;
+}
+.navigation .navigation__wrapper .nav__content .flex .right {
+  width: 55%;
+}
+.navigation .navigation__wrapper .nav__content .flex .right ul {
+  flex-wrap: wrap;
+}
+.navigation .navigation__wrapper .nav__content .flex .right ul li {
+  width: 30%;
+  margin-bottom: 3rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .right ul li a .thumb {
+  height: 14rem;
+}
+.navigation .navigation__wrapper .nav__content .flex .right ul li a h3 {
+  font-weight: normal;
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.float__reserve {
+  width: 350px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #274875;
+  padding: 30px 0;
+  position: fixed;
+  right: 0;
+  bottom: 5%;
+  z-index: 500;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.reserve_fixed {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  z-index: 1000;
+  transform: translateY(50px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reserve_fixed.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+.reserve_fixed::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: left 0.2s ease-in-out 0.2s;
+}
+.reserve_fixed .reserve__wrapper {
+  background-color: #274875;
+  margin-top: 24.7vh;
+  padding-top: 8.8vh;
+  padding-bottom: 9rem;
+  padding-left: 9rem;
+  color: #fff;
+}
+.reserve_fixed .reserve__wrapper .float__close {
+  display: none;
+  cursor: pointer;
+  top: -11.2rem;
+  right: 0;
+  position: absolute;
+  width: 350px;
+  font-size: 2rem;
+  background-color: #fff;
+  color: #274875;
+  padding: 30px 0;
+  text-align: center;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider {
+  overflow: hidden;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide {
+  width: 37rem;
+  margin-right: 3.7rem;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .thumb {
+  width: 100%;
+  height: 25rem;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide h2 {
+  color: #fff;
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #fff;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide strong {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .info {
+  margin-bottom: 4rem;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .info dl {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .info dl dt {
+  width: 15%;
+  border-right: 1px solid #fff;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .info dl dd {
+  width: 80%;
+  padding-left: 5%;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide .info dl dd img {
+  margin-left: 20px;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide ul.cat__list li {
+  width: 23%;
+  font-size: 10px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  border-radius: 50px;
+  padding: 5px 0;
+  margin-right: 2%;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide ul.cat__list li:nth-child(4n) {
+  margin-right: 0;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-wrapper .swiper-slide a.reserve__btn {
+  width: 100%;
+  color: #274875;
+  background-color: #fff;
+  text-align: center;
+  padding: 12px 0 10px 0;
+  font-size: 13px;
+}
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-button-next::after,
+.reserve_fixed .reserve__wrapper .reserve__slider .swiper-button-prev::after {
+  color: #fff;
+  font-size: 20px;
+}
 /*-------------------------
     concept
 -------------------------*/
@@ -327,6 +600,16 @@ textarea {
 #features {
   background-color: #E3DFDA;
 }
+#features .features__content {
+  position: relative;
+  overflow: hidden;
+}
+#features .features__content .features__content--items {
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
 @media screen and (max-width: 768px) {
   #features .features__content .features__content--items {
     width: 100%;
@@ -343,6 +626,14 @@ textarea {
 }
 #features .features__content .features__content--items:nth-of-type(4) {
   background-image: url(./../../images/top/features_img04.jpg);
+}
+#features .features__content .features__content--items:hover {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 /*-------------------------
@@ -631,4 +922,4 @@ textarea {
 
 /*-------------------------
     固定ページ共通
--------------------------*//*# sourceMappingURL=main.css.map */
+-------------------------*/

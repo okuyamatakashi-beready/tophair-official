@@ -60,7 +60,7 @@
 					<a href="/about" class="text-white ">会社概要</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">コンタクト</a>
+					<a href="/contact" class="text-white ">コンタクト</a>
 				</li>
 			</ul>
 
@@ -100,12 +100,13 @@
 	</div>
 </header>
 
-<div class="navigation">
-	<div class="navigation__wrapper">
+<div class="navigation fixed">
+	<div class="navigation__wrapper relative">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/close.svg" alt="" class="close">
 		<div class="nav__ttl">
-			<div class="flex">
+			<div class="flex justify-between">
 				<a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt=""></a>
-				<ul class="sns">
+				<ul class="sns flex justify-start">
 					<li>
 						<a href="" class="mr-2.4">
 							<svg id="グループ_41" data-name="グループ 41" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
@@ -143,6 +144,7 @@
 		</div>
 
 		<div class="nav__content">
+			
 			<div class="flex">
 				<div class="left">
 					<ul class="flex">
@@ -178,35 +180,29 @@
 						</li>
 					</ul>
 
-					<div id="reserve" class="pt-9 pb-15">
-						<h2 class="sec__ttl--big mb-6">
+					<div class="reserve" class="pt-9 pb-15">
+						<h2 class="sec__ttl--big mb-6 text-center">
 							RESERVE
 						</h2>
-						<p class="text-center text-2 mb-6">お電話または、WEB予約（24時間受付）よりご予約を承っております。</p>
-						<?php if( have_rows('salon_info') ): ?>
-								<?php while( have_rows('salon_info') ): the_row();
-									$tel = get_sub_field('tel');
-									$tel_time = get_sub_field('tel_time');
-									$reserved_link = get_sub_field('reserved_link');
-								?>
-							<a href="tel:<?php echo $tel;?>" class="button mb-1.6 mx-auto block text-2.5"><?php echo $tel;?></a>
-							<p class="text-center text-2 mb-3">受付時間<?php echo $tel_time;?></p>
-							<a href="<?php echo $reserved_link;?>" target="_blank" class="button mb-1.6 mx-auto block text-2.5">WEB</a>
+						<p class="text-center mb-1.5">お電話または、WEB予約（24時間受付）より<br>ご予約を承っております。</p>
+
+							<a href="tel:0566552647" class="button mb-1 mx-auto block text-2.5">0566-55-2647</a>
+							<p class="text-center text-2 mb-3">電話受付. 00:00 - 00:00. （月曜日を除く）</p>
+							<a href="/" target="_blank" class="button mb-1.6 mx-auto block text-2.5">WEB</a>
 							<p class="text-center text-2">24時間受付</p>
-							<?php endwhile;?>
-							<?php endif; ?>
+
 					</div>
 				</div>
 
 				<div class="right">
-					<ul class="flex">
+					<ul class="flex justify-between">
 					<?php
 					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 					$args = array(
 						'posts_per_page' => '6',
 						'post_status' => 'publish',
 						'paged' => $paged,
-						'post_type' => 'tophair_salon',
+						'post_type' => 'tophair-salon',
 					);
 
 					$my_query = new WP_Query($args); // クエリの実行
@@ -217,9 +213,10 @@
 							?>
 						<li>
 							<a href="<?php the_permalink(); ?>">
-								<div class="thumb bg" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+								<div class="thumb bg mb-1" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+								<h3 class="text-center "><?php the_title();?></h3>
 							</a>
-							<h3><?php the_title();?></h3>
+							
 						</li>
 						<?php
 							endwhile;
@@ -235,6 +232,106 @@
 	</div>
 </div>
 
+<div class="float__reserve fixed">RESERVE</div>
+
+<div class="reserve_fixed fixed">
+	<div class="reserve__wrapper relative">
+	<div class="float__close fixed">CLOSE</div>
+		<div class="reserve__slider">
+			<div class="swiper-wrapper">
+				<?php
+					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+					$args = array(
+						'posts_per_page' => '6',
+						'post_status' => 'publish',
+						'paged' => $paged,
+						'post_type' => 'tophair-salon',
+					);
+
+					$my_query = new WP_Query($args); // クエリの実行
+
+					if ($my_query->have_posts()) :
+						while ($my_query->have_posts()) : $my_query->the_post();
+							// 投稿の内容を出力
+							?>
+				<?php 
+					$top_img = get_field('top_img');
+					$city = get_field('city');
+					$furigana = get_field('furigana');
+					$salon_img = get_field('salon_img');
+					$concept = get_field('concept');
+					$salon_img02 = get_field('salon_img02');
+					$salon_info = get_field('salon_info');
+				?>
+				<div class="swiper-slide">
+					<div class="thumb bg mb-2.8" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+					<h2 class="mb-2.8 text-center pb-2.6"><?php the_title(); ?></h2>
+					<strong class="block font-normal mb-2"><?php echo $furigana;?></strong>
+					<div class="info">
+						<?php if( have_rows('salon_info') ): ?>
+						<?php while( have_rows('salon_info') ): the_row();
+							$address = get_sub_field('address');
+							$map = get_sub_field('map');
+							$iframe = get_sub_field('iframe');
+							$tel = get_sub_field('tel');
+							$business_time1 = get_sub_field('business_time1');
+							$holiday = get_sub_field('holiday');
+							$parking = get_sub_field('parking');
+							$tel_time = get_sub_field('tel_time');
+							$reserved_link = get_sub_field('reserved_link');
+						?>
+						<dl class="flex">
+							<dt>住所</dt>
+							<dd class="flex justify-start"><?php echo $address;?><img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/map-icon.svg" alt="" class="map"></dd>
+						</dl>
+						<dl class="flex">
+							<dt>TEL</dt>
+							<dd><?php echo $tel;?></dd>
+						</dl>
+						<dl class="flex">
+							<dt>定休日</dt>
+							<dd><?php echo $holiday;?></dd>
+						</dl>
+						<?php endwhile;?>
+                        <?php endif; ?>
+					</div>
+					<ul class="flex flex-wrap justify-start mb-1.7 cat__list mx-auto">
+						<?php
+						// 現在の投稿に関連付けられた `tophair-menu` のタームを取得
+						$terms = get_the_terms(get_the_ID(), 'tophair_menu');
+						if ($terms && !is_wp_error($terms)) :
+							foreach ($terms as $term) :
+								?>
+								<li class="mr-1">
+									<div class="text-[10px]"><?php echo esc_html($term->name); ?></div>
+								</li>
+							<?php
+							endforeach;
+						else :
+							?>
+							<li class="mr-1">
+								<span class="salon__menu--list">メニュー情報がありません</span>
+							</li>
+						<?php endif; ?>
+					</ul>
+					<a href="<?php echo $reserved_link;?>" class="reserve__btn block">サロン予約</a>
+				</div>
+				<?php
+					endwhile;
+					else :
+						echo '<p>該当するスタッフ情報が見つかりません。</p>';
+					endif;
+					wp_reset_postdata(); // クエリのリセット
+				?>
+				
+
+			</div>
+			<div class="swiper-button-next"></div>
+				<!-- ナビゲーションボタン（前へ） -->
+				<div class="swiper-button-prev"></div>
+		</div>
+	</div>
+</div>
 <div id="toggle">
 	<div class="relative">
 		<span></span>

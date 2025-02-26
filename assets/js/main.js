@@ -47,6 +47,24 @@ const salon_swiper = new Swiper(".salon__swiper", {
     },
 });
 
+/*
+	予約のスライダー
+*/
+const reserve__slider = new Swiper(".reserve__slider", {
+    loop: true, // ループさせる
+    speed: 1500, // 少しゆっくり(デフォルトは300)
+    slidesPerView: "auto", // スライドの幅を自動調整
+    centeredSlides: false, // スライドを中央寄せにしない
+    autoplay: false, // 自動再生なし
+
+    // 矢印ナビゲーション
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+
 
 /*
 	コンセプトページ追従
@@ -303,3 +321,123 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+/*
+	toggleボタンを押したとき
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("toggle");
+    const closeButton = document.querySelector(".close");
+    const navigation = document.querySelector(".navigation");
+
+    // ナビゲーションを開く
+    toggle.addEventListener("click", function () {
+        navigation.classList.add("active");
+    });
+
+    // ナビゲーションを閉じる
+    closeButton.addEventListener("click", function () {
+        navigation.classList.remove("active");
+    });
+
+    // ナビゲーション外をクリックしたら閉じる
+    document.addEventListener("click", function (event) {
+        if (!navigation.contains(event.target) && !toggle.contains(event.target) && !event.target.classList.contains("close")) {
+            navigation.classList.remove("active");
+        }
+    });
+});
+
+
+/*
+	スクロール後headerの色変更
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
+
+    if (!header) {
+        console.error("ヘッダーが見つかりません。HTMLに<header>要素があるか確認してください。");
+        return;
+    }
+
+    window.addEventListener("scroll", function () {
+        console.log("スクロール位置:", window.scrollY); // デバッグ用: コンソールでスクロール量を確認
+
+        if (window.scrollY > 500) {
+            header.classList.add("scrolled"); // 500pxスクロールしたら背景色変更
+            console.log("scrolled クラスが追加されました！"); // 確認用ログ
+        } else {
+            header.classList.remove("scrolled"); // 戻ったら元の状態に
+            console.log("scrolled クラスが削除されました！"); // 確認用ログ
+        }
+    });
+});
+
+
+/*
+	予約ボタンを押した時の挙動
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    const reserveButton = document.querySelector(".float__reserve");
+    const closeButtonFloat = document.querySelector(".float__close");
+    const reserveFixed = document.querySelector(".reserve_fixed");
+    const closeButton = document.querySelector(".close_reserve");
+
+    // .float__reserve をクリック → .reserve_fixed を表示 & .float__reserve を非表示にして .float__close を表示
+    reserveButton.addEventListener("click", function () {
+        reserveFixed.classList.add("active");
+        reserveButton.style.display = "none";
+        closeButtonFloat.style.display = "block";
+    });
+
+    // .float__close をクリック → .reserve_fixed を閉じて .float__reserve を再表示
+    closeButtonFloat.addEventListener("click", function () {
+        reserveFixed.classList.remove("active");
+        reserveButton.style.display = "block";
+        closeButtonFloat.style.display = "none";
+    });
+
+    // 閉じるボタンをクリック → .reserve_fixed を閉じる
+    closeButton.addEventListener("click", function () {
+        reserveFixed.classList.remove("active");
+        reserveButton.style.display = "block";
+        closeButtonFloat.style.display = "none";
+    });
+
+    // モーダル外をクリックしたら閉じる
+    document.addEventListener("click", function (event) {
+        if (!reserveFixed.contains(event.target) && !reserveButton.contains(event.target) && !closeButtonFloat.contains(event.target)) {
+            reserveFixed.classList.remove("active");
+            reserveButton.style.display = "block";
+            closeButtonFloat.style.display = "none";
+        }
+    });
+});
+
+
+
+
+// 動きのきっかけの起点となるアニメーションの名前を定義
+function fadeAnime(){
+
+    // ふわっ
+    $('.fadeUpTrigger').each(function(){ //fadeUpTriggerというクラス名が
+      var elemPos = $(this).offset().top-50;//要素より、50px上の
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll >= elemPos - windowHeight){
+      $(this).addClass('fadeUp');// 画面内に入ったらfadeUpというクラス名を追記
+      }
+      });
+  }
+  
+  // 画面をスクロールをしたら動かしたい場合の記述
+  $(window).scroll(function (){
+    fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  });// ここまで画面をスクロールをしたら動かしたい場合の記述
+  
+  // 画面が読み込まれたらすぐに動かしたい場合の記述
+  $(window).on('load', function(){
+    fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+  

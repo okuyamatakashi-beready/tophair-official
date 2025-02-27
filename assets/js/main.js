@@ -1,8 +1,4 @@
-jQuery(function () {
-    jQuery('#fullpage').fullpage({
-        scrollOverflow:true,
-    });
-});
+
 
 /*
 	ギャラリーのスライダー
@@ -415,29 +411,49 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
 
+    if (!header) {
+        console.error("ヘッダーが見つかりません。HTMLに<header>要素があるか確認してください。");
+        return;
+    }
 
-// 動きのきっかけの起点となるアニメーションの名前を定義
-function fadeAnime(){
+    // 通常のスクロールイベント (fullPage.jsがない場合)
+    window.addEventListener("scroll", function () {
+        console.log("スクロール位置:", window.scrollY);
+        fadeAnime(); // 通常のスクロール時にも適用
 
-    // ふわっ
-    $('.fadeUpTrigger').each(function(){ //fadeUpTriggerというクラス名が
-      var elemPos = $(this).offset().top-50;//要素より、50px上の
-      var scroll = $(window).scrollTop();
-      var windowHeight = $(window).height();
-      if (scroll >= elemPos - windowHeight){
-      $(this).addClass('fadeUp');// 画面内に入ったらfadeUpというクラス名を追記
-      }
-      });
-  }
-  
-  // 画面をスクロールをしたら動かしたい場合の記述
-  $(window).scroll(function (){
-    fadeAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまで画面をスクロールをしたら動かしたい場合の記述
-  
-  // 画面が読み込まれたらすぐに動かしたい場合の記述
-  $(window).on('load', function(){
-    fadeAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
-  
+        if (window.scrollY > 500) {
+            document.body.classList.add("scrolled");
+            console.log("✅ scrolled クラスが追加されました！");
+        } else {
+            document.body.classList.remove("scrolled");
+            console.log("❌ scrolled クラスが削除されました！");
+        }
+    });
+
+    // fullPage.js の設定
+    if (typeof jQuery !== "undefined" && typeof jQuery.fn.fullpage !== "undefined") {
+        jQuery(function () {
+            jQuery("#fullpage").fullpage({
+                scrollOverflow: true,
+                afterLoad: function (origin, destination, direction) {
+                    console.log("セクションが変更されました:", destination.anchor);
+
+                    fadeAnime(); // fullPage.js のセクション切り替え時に適用
+
+                    if (destination.index > 0) {
+                        document.body.classList.add("scrolled");
+                        console.log("✅ scrolled クラスが追加されました！（fullPage.js）");
+                    } else {
+                        document.body.classList.remove("scrolled");
+                        console.log("❌ scrolled クラスが削除されました！（fullPage.js）");
+                    }
+                }
+            });
+        });
+    } else {
+        console.warn("⚠️ fullPage.js が読み込まれていません。通常のスクロール処理のみ動作します。");
+    }
+});

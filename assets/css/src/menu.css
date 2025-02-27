@@ -16,9 +16,7 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -164,8 +162,7 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -294,4 +291,16 @@ textarea {
 .menu__wrapper .menu__salon .menu__list--items .thumb {
   padding-top: 24.5rem;
   background-image: url(./../../images/menu/thumb.jpg);
-}/*# sourceMappingURL=menu.css.map */
+}
+
+.fadeUpTrigger {
+  opacity: 0;
+  transform: translateY(50px); /* 50px 下に配置 */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 画面内に入ったら表示 */
+.fadeUp {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -27,7 +27,7 @@
         <section id="concept" class=" pt-[30rem] w-full">
             <div class="concept__container bg-white">
                 <div class="flex justify-between">
-                    <div class="concept__img--first w-[84rem] bg pt-[112.2rem]"></div>
+                    <div class="concept__img--first w-[84rem] bg pt-[112.2rem] fadeUpTrigger" ></div>
 
                     <div class="concept__content pt-[10rem] pb-24">
                         <h2 class=" text-[3rem] font-normal mb-[11.7rem] mr-[11.7rem]">CONCEPT</h2>

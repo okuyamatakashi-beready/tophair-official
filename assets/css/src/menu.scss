@@ -105,3 +105,15 @@
         }
     }
 }
+
+.fadeUpTrigger {
+    opacity: 0;
+    transform: translateY(50px); /* 50px 下に配置 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 画面内に入ったら表示 */
+.fadeUp {
+    opacity: 1;
+    transform: translateY(0);
+}

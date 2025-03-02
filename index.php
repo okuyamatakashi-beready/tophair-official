@@ -31,7 +31,7 @@
 
                     <div class="concept__content pt-[10rem] pb-24">
                         <h2 class=" text-[3rem] font-normal mb-[11.7rem] mr-[11.7rem]">CONCEPT</h2>
-                        <strong class="block text-[4rem] font-normal mb-24">
+                        <strong class="block text-[4rem] font-normal mb-8">
                             健康でいて、美しく。<br>
                             理想へ導くウェルビーイングサロン
                         </strong>
@@ -274,37 +274,27 @@
         </div>
 
         <section id="news" class="pt-10 pb-10">
-            <div class="news__container ">
+            <div class="news__container mx-auto">
                 <h2 class="sec__ttl--big mb-5 text-left">
                     NEWS
                 </h2> 
-                <dl class=" py-5">
-                    <dt class="flex ">
-                        <span class="time text-1.5 mr-5">2024.09.01</span>
-                        <span class="cat text-1.5">NEWS</span>
-                    </dt>
-                    <dd>
-                        <p class="text-2 text-black">ニュースタイトル０１</p>
-                    </dd>
-                </dl>
-                <dl class=" py-5">
-                    <dt class="flex">
-                        <span class="time text-1.5">2024.09.01</span>
-                        <span class="cat text-1.5">NEWS</span>
-                    </dt>
-                    <dd>
-                        <p class="text-2 text-black">ニュースタイトル０１</p>
-                    </dd>
-                </dl>
-                <dl class=" py-5">
-                    <dt class="flex">
-                        <span class="time text-1.5">2024.09.01</span>
-                        <span class="cat text-1.5">NEWS</span>
-                    </dt>
-                    <dd>
-                        <p class="text-2 text-black">ニュースタイトル０１</p>
-                    </dd>
-                </dl>
+                <div class="news__content mb-24">
+                    <div class="content">
+                        <dl class="news-item py-5 w-full">
+                            <dt class="flex mb-2 justify-start">
+                                <span class="time mr-2.6 text-1.5">2024.09.01</span>
+                                <span class="cat text-1.5">NEWS</span>
+                            </dt>
+                            <dd>
+                                <a href="">
+                                    <h3 class="text-2 text-black font-normal">記事タイトル</h3>
+                                </a>
+                            </dd>
+                        </dl>
+                        
+                    </div>
+
+                </div>
                 <a href="/news" class="button__type--a ml-auto mt-4.7">
                     <div>
                         <span>VIEW MORE</span>
@@ -312,6 +302,31 @@
                 </a>
             </div>
         </section>
+
+        <main class="news-container">
+        
+            <!-- 記事詳細（Ajaxで読み込む） -->
+            <aside id="news-detail" class="news-detail">
+                <div class="news-content">
+                    <button class="close-btn"><img src="<?php echo get_template_directory_uri();?>/assets/images/gallery/modal-close.svg" alt="" class=""></button>
+                    <div id="news-content-area">
+                        <div class="ttl">
+                            <span class="time">2024.09.01</span>
+                            <h4>記事のタイトル</h4>
+                        </div>
+                        <div class="detail__content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <script>
+            var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+        </script>
+
+
 
         <section id="gallery" class="w-full">
             <div class="gallery__bg w-full relative bg">

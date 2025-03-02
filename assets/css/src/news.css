@@ -16,9 +16,7 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -164,8 +162,7 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -217,33 +214,33 @@ textarea {
   background-color: #000;
 }
 
-#page-news {
+#page-news, #news {
   background-color: #F8F8F8;
 }
-#page-news .news__container {
+#page-news .news__container, #news .news__container {
   width: 68.75%;
 }
-#page-news .news__container .flex .sidebar {
+#page-news .news__container .flex .sidebar, #news .news__container .flex .sidebar {
   width: 22.7%;
 }
-#page-news .news__container .flex .sidebar .sidebar__content ul li a {
+#page-news .news__container .flex .sidebar .sidebar__content ul li a, #news .news__container .flex .sidebar .sidebar__content ul li a {
   font-size: 1.5rem;
   color: #000;
   font-family: "Noto Sans JP", sans-serif;
 }
-#page-news .news__container .flex .news__content {
+#page-news .news__container .flex .news__content, #news .news__container .flex .news__content {
   width: 77.27%;
 }
-#page-news .news__container .flex .news__content dl {
+#page-news .news__container .flex .news__content dl, #news .news__container .flex .news__content dl {
   border-top: 1px solid #000;
 }
-#page-news .news__container .flex .news__content dl:last-of-type {
+#page-news .news__container .flex .news__content dl:last-of-type, #news .news__container .flex .news__content dl:last-of-type {
   border-bottom: 1px solid #000;
 }
-#page-news .news__container .flex .news__content dl dt span {
+#page-news .news__container .flex .news__content dl dt span, #news .news__container .flex .news__content dl dt span {
   font-family: "Noto Sans JP", sans-serif;
 }
-#page-news .news__container .flex .news__content dl dd a h3 {
+#page-news .news__container .flex .news__content dl dd a h3, #news .news__container .flex .news__content dl dd a h3 {
   font-family: "Noto Sans JP", sans-serif;
 }
 
@@ -377,4 +374,4 @@ textarea {
 .overlay.active {
   opacity: 1;
   visibility: visible;
-}/*# sourceMappingURL=news.css.map */
+}

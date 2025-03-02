@@ -299,9 +299,6 @@ textarea {
   background-color: transparent;
   transition: background-color 0.5s ease-in-out;
 }
-#header.scrolled {
-  background-color: #fff;
-}
 #header .container_max nav {
   min-width: 880px;
 }
@@ -310,9 +307,18 @@ textarea {
   display: block;
   font-family: "Noto Sans JP", sans-serif;
 }
+#header .container_max nav ul li a {
+  transition: all 0.5s;
+}
 #header .container_max nav .nav__sns {
   border-right: 1px solid #fff;
   border-left: 1px solid #fff;
+}
+#header.scrolled {
+  background-color: #fff;
+}
+#header.scrolled .container_max ul li a {
+  color: #000;
 }
 
 #toggle {
@@ -461,6 +467,8 @@ textarea {
   z-index: 500;
   font-size: 2rem;
   letter-spacing: 0.05em;
+  transform: rotate(90deg);
+  transform-origin: top right;
 }
 
 .reserve_fixed {
@@ -599,41 +607,69 @@ textarea {
 -------------------------*/
 #features {
   background-color: #E3DFDA;
+  position: relative;
+  width: 100vw;
 }
 #features .features__content {
+  display: flex;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 #features .features__content .features__content--items {
   transition: all 0.5s ease-in-out;
   position: relative;
   z-index: 1;
+  width: 25%;
   flex: 1;
+  height: 70vh;
 }
 @media screen and (max-width: 768px) {
   #features .features__content .features__content--items {
     width: 100%;
+    height: auto;
   }
 }
 #features .features__content .features__content--items:nth-of-type(1) {
   background-image: url(./../../images/top/features_img01.jpg);
+  background-size: cover;
+  background-position: center;
 }
 #features .features__content .features__content--items:nth-of-type(2) {
   background-image: url(./../../images/top/features_img02.jpg);
+  background-size: cover;
+  background-position: center;
 }
 #features .features__content .features__content--items:nth-of-type(3) {
   background-image: url(./../../images/top/features_img03.jpg);
+  background-size: cover;
+  background-position: center;
 }
 #features .features__content .features__content--items:nth-of-type(4) {
   background-image: url(./../../images/top/features_img04.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#features .features__content .features__content--items .features__content--ttl {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
 }
 #features .features__content .features__content--items:hover {
-  position: absolute;
   width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
+  flex-grow: 3;
+}
+#features .features__content .features__content--items:not(:hover) {
+  width: 0;
+  flex-grow: 0.5;
+  opacity: 0.6;
 }
 
 /*-------------------------
@@ -737,7 +773,7 @@ textarea {
     NEWS
 -------------------------*/
 #news {
-  width: 74%;
+  width: 100%;
   margin: 17rem auto 0 auto;
 }
 #news h2 {
@@ -923,3 +959,164 @@ textarea {
 /*-------------------------
     固定ページ共通
 -------------------------*/
+#news {
+  background-color: #E3DFDA;
+}
+#news .news__container {
+  width: 68.75%;
+}
+#news .news__container .flex .sidebar {
+  width: 22.7%;
+}
+#news .news__container .flex .sidebar .sidebar__content ul li a {
+  font-size: 1.5rem;
+  color: #000;
+  font-family: "Noto Sans JP", sans-serif;
+}
+#news .news__container .flex .news__content {
+  width: 77.27%;
+}
+#news .news__container .flex .news__content dl {
+  border-top: 1px solid #000;
+}
+#news .news__container .flex .news__content dl:last-of-type {
+  border-bottom: 1px solid #000;
+}
+#news .news__container .flex .news__content dl dt span {
+  font-family: "Noto Sans JP", sans-serif;
+}
+#news .news__container .flex .news__content dl dd a h3 {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.news-container {
+  display: flex;
+  position: relative;
+}
+
+.news-list {
+  width: 60%;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10rem;
+}
+.pagination button,
+.pagination .current,
+.pagination .dots {
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.pagination .current {
+  font-weight: bold;
+  color: #000;
+}
+.pagination button:hover {
+  background-color: #ddd;
+}
+.pagination .dots {
+  cursor: default;
+}
+
+#news-detail {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: -100%;
+  width: 63%;
+  box-sizing: border-box;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 1s ease-in-out;
+  overflow-y: auto;
+  padding-top: 19rem;
+  padding-left: 10rem;
+  padding-right: 20rem;
+  padding-bottom: 13rem;
+}
+#news-detail.active {
+  right: 0;
+}
+#news-detail .news-content #news-content-area .ttl {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 40px;
+}
+#news-detail .news-content #news-content-area .ttl span.time {
+  font-size: 15px;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  display: block;
+}
+#news-detail .news-content #news-content-area .ttl h4 {
+  font-size: 2.8rem;
+}
+#news-detail .news-content #news-content-area .detail__content {
+  margin-bottom: 60px;
+}
+#news-detail .news-content #news-content-area .detail__content img {
+  margin-bottom: 40px;
+}
+#news-detail .news-content #news-content-area .detail__content p {
+  font-size: 2rem;
+  line-height: 1.5em;
+  margin-bottom: 40px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10rem;
+  right: 20rem;
+  font-size: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.news-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.news-navigation button {
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.news-navigation button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.news-navigation button:hover {
+  background: #005bb5;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}

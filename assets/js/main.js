@@ -1,5 +1,4 @@
 
-
 /*
 	ギャラリーのスライダー
 */
@@ -348,26 +347,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /*
 	スクロール後headerの色変更
 */
-document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector("header");
-
-    if (!header) {
-        console.error("ヘッダーが見つかりません。HTMLに<header>要素があるか確認してください。");
-        return;
-    }
-
-    window.addEventListener("scroll", function () {
-        console.log("スクロール位置:", window.scrollY); // デバッグ用: コンソールでスクロール量を確認
-
-        if (window.scrollY > 500) {
-            header.classList.add("scrolled"); // 500pxスクロールしたら背景色変更
-            console.log("scrolled クラスが追加されました！"); // 確認用ログ
-        } else {
-            header.classList.remove("scrolled"); // 戻ったら元の状態に
-            console.log("scrolled クラスが削除されました！"); // 確認用ログ
-        }
-    });
-});
 
 
 /*
@@ -411,49 +390,90 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
+
+// jQuery(function () {
+//     if (typeof jQuery.fn.fullpage !== "undefined" && !jQuery('#fullpage').hasClass('fp-enabled')) {
+//         jQuery('#fullpage').fullpage({
+//             scrollOverflow: true,    // スクロール可能にする
+//             autoScrolling: false,    // 🔥 通常スクロールを有効にする
+//             fitToSection: false,     // 🔥 自動でセクションにフィットしない
+//             normalScrollElements: "#concept, #features, #salons, #news, #gallery, #studio, #recruit, #whats, footer",
+//             afterLoad: function (origin, destination, direction) {
+//                 console.log("🌍 セクションが変更されました:", destination.anchor);
+//                 fadeAnime(); // fullPage.js の切り替え時にアニメーション適用
+//                 handleScroll(); // fullPage.js の動作時も `header.scrolled` を適用
+//             }
+//         });
+
+//         console.log("✅ `fullPage.js` が初期化されました。（通常スクロールと共存）");
+//     } else {
+//         console.warn("⚠️ `fullPage.js` はすでに初期化されています。");
+//     }
+
+//     // ✅ 通常スクロールで `fadeAnime()` を実行
+//     jQuery(window).on("scroll", function () {
+//         fadeAnime();
+//     });
+
+//     // ✅ ページ読み込み時にも `fadeAnime()` を実行
+//     jQuery(window).on("load", function () {
+//         fadeAnime();
+//     });
+
+//     // ✅ IntersectionObserver を利用して要素が画面内に入ったら `fadeUp` クラスを追加
+//     const observer = new IntersectionObserver(entries => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add("fadeUp");
+//             }
+//         });
+//     }, { threshold: 0.3 }); // 30% 以上表示されたら適用
+
+//     // `.fadeUpTrigger` クラスの要素を監視
+//     document.querySelectorAll(".fadeUpTrigger").forEach(el => {
+//         observer.observe(el);
+//     });
+// });
+
+
+/*
+	スムーススクロール
+*/
+
+let lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector("header");
+    const items = document.querySelectorAll(".features__content--items");
 
-    if (!header) {
-        console.error("ヘッダーが見つかりません。HTMLに<header>要素があるか確認してください。");
-        return;
-    }
-
-    // 通常のスクロールイベント (fullPage.jsがない場合)
-    window.addEventListener("scroll", function () {
-        console.log("スクロール位置:", window.scrollY);
-        fadeAnime(); // 通常のスクロール時にも適用
-
-        if (window.scrollY > 500) {
-            document.body.classList.add("scrolled");
-            console.log("✅ scrolled クラスが追加されました！");
-        } else {
-            document.body.classList.remove("scrolled");
-            console.log("❌ scrolled クラスが削除されました！");
-        }
-    });
-
-    // fullPage.js の設定
-    if (typeof jQuery !== "undefined" && typeof jQuery.fn.fullpage !== "undefined") {
-        jQuery(function () {
-            jQuery("#fullpage").fullpage({
-                scrollOverflow: true,
-                afterLoad: function (origin, destination, direction) {
-                    console.log("セクションが変更されました:", destination.anchor);
-
-                    fadeAnime(); // fullPage.js のセクション切り替え時に適用
-
-                    if (destination.index > 0) {
-                        document.body.classList.add("scrolled");
-                        console.log("✅ scrolled クラスが追加されました！（fullPage.js）");
-                    } else {
-                        document.body.classList.remove("scrolled");
-                        console.log("❌ scrolled クラスが削除されました！（fullPage.js）");
-                    }
+    items.forEach(item => {
+        item.addEventListener("mouseenter", function () {
+            items.forEach(i => {
+                if (i !== item) {
+                    i.style.width = "0";
+                    i.style.opacity = "0.6";
                 }
             });
+            item.style.width = "100vw"; // ✅ 画面いっぱいに広げる
+            item.style.flexGrow = "3";
         });
-    } else {
-        console.warn("⚠️ fullPage.js が読み込まれていません。通常のスクロール処理のみ動作します。");
-    }
+
+        item.addEventListener("mouseleave", function () {
+            items.forEach(i => {
+                i.style.width = "25%";
+                i.style.opacity = "1";
+                i.style.flexGrow = "1";
+            });
+        });
+    });
 });

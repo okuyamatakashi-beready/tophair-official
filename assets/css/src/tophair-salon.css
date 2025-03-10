@@ -208,6 +208,12 @@ textarea {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@media screen and (max-width: 768px) {
+  #page__mv {
+    padding-top: 484px;
+  }
+}
+
 ul.cat__list {
   width: 45%;
 }
@@ -219,10 +225,26 @@ ul.cat__list li {
 ul.cat__list li:last-of-type {
   margin-right: 0;
 }
+@media screen and (max-width: 768px) {
+  ul.cat__list {
+    width: 77%;
+    justify-content: space-between;
+    margin-bottom: 34px;
+  }
+  ul.cat__list li {
+    width: 23.6%;
+  }
+}
 
 .salon__menu--list {
   color: #274875;
   border-color: #274875;
+}
+@media screen and (max-width: 768px) {
+  .salon__menu--list {
+    color: #000000;
+    border-color: #000;
+  }
 }
 
 .salon__wrapper .salon__slider {
@@ -230,6 +252,45 @@ ul.cat__list li:last-of-type {
 }
 .salon__wrapper .salon__slider .swiper-wrapper .swiper-slide {
   padding-top: 69.2rem;
+}
+@media screen and (max-width: 768px) {
+  .salon__wrapper .salon__slider .swiper-wrapper .swiper-slide {
+    padding-top: 209px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .salon__wrapper {
+    padding-top: 50px;
+  }
+  .salon__wrapper p.city {
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+  .salon__wrapper h1 {
+    font-size: 35px;
+    line-height: 47px;
+    margin-bottom: 50px;
+  }
+  .salon__wrapper h1 span {
+    font-size: 12px;
+  }
+  .salon__wrapper .salon__concept {
+    padding-top: 60px;
+    padding-bottom: 43px;
+    width: 85%;
+    margin: auto;
+  }
+  .salon__wrapper .salon__concept .concept__ttl span {
+    font-size: 18px;
+    margin-bottom: 41px;
+  }
+  .salon__wrapper .salon__concept .concept__ttl strong {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+  .salon__wrapper .salon__concept .concept__ttl p {
+    font-size: 12px;
+  }
 }
 
 .salon__solo--img {
@@ -249,9 +310,24 @@ ul.cat__list li:last-of-type {
   margin: auto;
   background-color: #000;
 }
+@media screen and (max-width: 768px) {
+  .salon__solo--img {
+    width: 85%;
+    padding-bottom: 0;
+  }
+  .salon__solo--img .solo__img {
+    padding-top: 204px;
+    margin-bottom: 144px;
+  }
+  .salon__solo--img::after {
+    height: 60px;
+    bottom: -120px;
+  }
+}
 
 #salon__staff .staff__container .staff__content {
   width: 58%;
+  flex-wrap: wrap;
 }
 #salon__staff .staff__container .staff__content--item {
   width: 30%;
@@ -264,6 +340,64 @@ ul.cat__list li:last-of-type {
 }
 #salon__staff .staff__container .staff__content--item .info small {
   font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  #salon__staff .staff__container h2 {
+    margin-bottom: 50px;
+  }
+  #salon__staff .staff__container .staff__content--item {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  #salon__staff .staff__container .staff__content--item .thumb {
+    padding-top: 269px;
+    margin-bottom: 20px;
+  }
+  #salon__staff .staff__container .staff__content--item .info {
+    flex-wrap: wrap;
+  }
+  #salon__staff .staff__container .staff__content--item .info p {
+    width: 100%;
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+  #salon__staff .staff__container .staff__content--item .info p span {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
+
+/* 🔥 モーダルの基本設定 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 モーダルの内容 */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* 🔥 閉じるボタン */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 #infomation {
@@ -312,4 +446,9 @@ ul.cat__list li:last-of-type {
   border-radius: 50px;
   border: 1px solid #000;
   padding: 1.7rem 0;
+}
+@media screen and (max-width: 768px) {
+  #reserve a.button {
+    width: 100%;
+  }
 }/*# sourceMappingURL=tophair-salon.css.map */

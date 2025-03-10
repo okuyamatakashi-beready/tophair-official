@@ -16,7 +16,9 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -162,7 +164,8 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  appearance: button;
+  -moz-appearance: button;
+       appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -208,9 +211,24 @@ textarea {
 #page__mv {
   background-image: url(./../../images/menu/menu_mv.jpg);
 }
+@media screen and (max-width: 768px) {
+  #page__mv {
+    padding-top: 484px;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .menu__ttl {
+    padding-top: 70px;
+  }
+}
 .menu__ttl p {
   font-size: 10px;
+}
+@media screen and (max-width: 768px) {
+  .menu__ttl strong {
+    font-size: 15px;
+  }
 }
 
 .menu__link li {
@@ -219,6 +237,19 @@ textarea {
 }
 .menu__link li:last-child {
   border-right: none;
+}
+@media screen and (max-width: 768px) {
+  .menu__link {
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+  }
+  .menu__link li {
+    padding: 0 15px;
+    margin-bottom: 10px;
+  }
+  .menu__link li a {
+    font-size: 12px;
+  }
 }
 
 .menu__wrapper dl.menu__list {
@@ -230,12 +261,35 @@ textarea {
 }
 .menu__wrapper dl.menu__list dt {
   width: 69%;
+  position: relative;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper dl.menu__list dt {
+    justify-content: space-between;
+    width: 80%;
+    padding: 45px 0;
+  }
 }
 .menu__wrapper dl.menu__list dt p {
   width: 23%;
 }
+@media screen and (max-width: 768px) {
+  .menu__wrapper dl.menu__list dt p {
+    font-size: 25px;
+    width: 100%;
+  }
+}
 .menu__wrapper dl.menu__list dt span {
   width: 77%;
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper dl.menu__list dt span {
+    font-size: 12px;
+    width: 64%;
+    text-align: right;
+    margin-right: 16%;
+  }
 }
 .menu__wrapper dl.menu__list dt::before {
   content: "";
@@ -268,17 +322,108 @@ textarea {
   background-color: #fff;
   display: none;
 }
+@media screen and (max-width: 768px) {
+  .menu__wrapper dl.menu__list dd {
+    padding-top: 44px;
+  }
+}
 .menu__wrapper dl.menu__list dd .menu__content {
-  width: 48%;
+  width: 58%;
   margin-left: 31%;
   margin-right: 20.8%;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li {
+  position: relative;
+  padding-bottom: 14rem;
+  box-sizing: border-box;
+  padding-top: 5rem;
 }
 .menu__wrapper dl.menu__list dd .menu__content ul li .menu__content--price {
   width: 33%;
 }
+.menu__wrapper dl.menu__list dd .menu__content ul li::before {
+  content: "";
+  width: 25rem;
+  height: 82%;
+  background-color: #E3DFDA;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .first {
+  position: relative;
+  z-index: 10;
+  padding-right: 8rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .first b {
+  width: 70%;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .first b span {
+  font-size: 12px;
+  padding-left: 4rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second {
+  position: relative;
+  z-index: 10;
+  padding-right: 8rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second p {
+  width: 70%;
+  font-size: 2rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second.first-second {
+  border-bottom: 1px solid #707070;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second .second__list {
+  margin-top: 5rem;
+  width: 100%;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second .second__list:first-of-type {
+  margin-bottom: 4rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li .second .second__list:first-of-type .menu__content--price span.big {
+  font-size: 3rem;
+}
+.menu__wrapper dl.menu__list dd .menu__content ul li p.notes {
+  font-size: 15px;
+  margin-top: 18px;
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper dl.menu__list dd .menu__content {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu__wrapper dl.menu__list dd .menu__content ul {
+    margin-bottom: 30px;
+  }
+  .menu__wrapper dl.menu__list dd .menu__content ul li b {
+    font-size: 22px;
+  }
+  .menu__wrapper dl.menu__list dd .menu__content ul li p {
+    font-size: 12px;
+  }
+  .menu__wrapper dl.menu__list dd .menu__content ul li .menu__content--price span {
+    font-size: 12px;
+  }
+}
 .menu__wrapper .menu__salon {
   width: 67%;
   border-top: 1px solid #707070;
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper .menu__salon {
+    width: 85%;
+    padding: 50px 0;
+  }
+  .menu__wrapper .menu__salon .menu__salon--ttl p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper .menu__salon .menu__list {
+    flex-wrap: wrap;
+  }
 }
 .menu__wrapper .menu__salon .menu__list::after {
   content: "";
@@ -287,10 +432,23 @@ textarea {
 }
 .menu__wrapper .menu__salon .menu__list--items {
   width: 29.48%;
+  margin-bottom: 30px;
 }
 .menu__wrapper .menu__salon .menu__list--items .thumb {
   padding-top: 24.5rem;
   background-image: url(./../../images/menu/thumb.jpg);
+}
+@media screen and (max-width: 768px) {
+  .menu__wrapper .menu__salon .menu__list--items {
+    width: 100%;
+  }
+  .menu__wrapper .menu__salon .menu__list--items .thumb {
+    padding-top: 204px;
+    margin-bottom: 20px;
+  }
+  .menu__wrapper .menu__salon .menu__list--items a p {
+    font-size: 16px;
+  }
 }
 
 .fadeUpTrigger {
@@ -303,4 +461,4 @@ textarea {
 .fadeUp {
   opacity: 1;
   transform: translateY(0);
-}
+}/*# sourceMappingURL=menu.css.map */

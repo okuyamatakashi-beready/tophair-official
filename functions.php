@@ -4,6 +4,17 @@ require_once get_template_directory() . '/inc/enqueue.php';
 require_once get_template_directory() . '/inc/theme-setup.php';
 
 
+// クエリパラメータを追加
+// クエリ変数を登録
+function add_custom_query_vars($vars) {
+  $vars[] = 'menus';
+  $vars[] = 'active';
+  return $vars;
+}
+add_filter('query_vars', 'add_custom_query_vars');
+
+
+
 // アイキャッチ画像の設定
 add_theme_support('post-thumbnails');
 the_post_thumbnail('thumbnail');
@@ -460,3 +471,40 @@ function load_news_detail() {
 }
 add_action('wp_ajax_load_news_detail', 'load_news_detail');
 add_action('wp_ajax_nopriv_load_news_detail', 'load_news_detail');
+
+
+/*
+	サロンページのスタッフのポプアップ
+*/
+
+
+function get_staff_details() {
+  if (isset($_GET['staff_id'])) {
+      $staff_id = intval($_GET['staff_id']);
+
+      // 🔥 スタッフの詳細情報を取得
+      $staff_name = get_field('name', $staff_id);
+      $staff_job = get_field('staff_job', $staff_id);
+      $staff_roma = get_field('roma', $staff_id);
+      $staff_img = get_field('staff_img', $staff_id);
+      $staff_profile = get_field('profile', $staff_id); // 🔥 プロフィール詳細（カスタムフィールド）
+
+      // 🔥 HTMLで詳細情報を生成
+      echo '<div class="staff-modal-content">';
+      echo '<div class="staff-img" style="background-image: url(' . esc_url($staff_img) . '); height: 200px; background-size: cover;"></div>';
+      echo '<h2>' . esc_html($staff_name) . ' (' . esc_html($staff_roma) . ')</h2>';
+      echo '<p><strong>' . esc_html($staff_job) . '</strong></p>';
+      echo '<p>' . nl2br(esc_html($staff_profile)) . '</p>';
+      echo '</div>';
+
+      wp_die(); // 🔥 Ajaxの終了
+  }
+}
+add_action('wp_ajax_get_staff_details', 'get_staff_details');
+add_action('wp_ajax_nopriv_get_staff_details', 'get_staff_details');
+
+
+
+
+
+

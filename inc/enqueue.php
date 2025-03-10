@@ -82,7 +82,7 @@ function theme_enqueue_scripts() {
         );
 
     }
-    if (is_page(['contact', 'confirm', 'thanks'])) { // ページスラッグが 'contact', 'confirm', 'thanks' の場合
+    if (is_page(['contact', 'confirm', 'thanks','policy'])) { // ページスラッグが 'contact', 'confirm', 'thanks' の場合
         wp_enqueue_style(
             'contact-css',
             get_template_directory_uri() . '/assets/css/dist/contact.css',

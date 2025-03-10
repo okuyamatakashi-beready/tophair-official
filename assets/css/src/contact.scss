@@ -8,7 +8,7 @@
 .contact {
     .ttl {
         p {
-            font-size: 2rem;
+            font-size: 16px;
             line-height: 2em;
             text-align: center;
         }
@@ -52,6 +52,7 @@
                         padding: 10px 20px;
                         width: 100%;
                         box-sizing: border-box;
+                        font-family: "Noto Serif JP";
                     }
                     label {
                         input {
@@ -59,6 +60,7 @@
                         }
                     }
                     p {
+                        font-family: "Noto Serif JP";
                         .wpcf7-list-item {
                             width: 40%;
                             text-align: left;
@@ -88,6 +90,40 @@
                     }
                 }
             }
+            .send {
+                input.send {
+                    font-size: 2rem;
+                    text-align: center;
+                    background-color: #E3DFDA;
+                    width: 480px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    padding: 3rem 0;
+                    border-radius: 50px;
+                    letter-spacing: 0.5em;
+                    margin-top: 6rem;
+                    input {
+                        display: block;
+                        texst-aliogn: center;
+                        
+
+
+                    }
+                }
+            }
+            .repair {
+                font-size: 2rem;
+                text-align: center;
+                text-decoration: underline;
+                width: 480px;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 3rem 0;
+                letter-spacing: 0.5em;
+            }
+            .wpcf7-spinner {
+                display: none;
+            }
         }
         .confirm__wrapper {
             dl {
@@ -103,6 +139,24 @@
             }
             .policy {
                 display: none;
+            }
+            a.send {
+                font-size: 2rem;
+                text-align: center;
+                background-color: #E3DFDA;
+                width: 480px;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 3rem 0;
+                border-radius: 50px;
+                letter-spacing: 0.5em;
+                margin-top: 6rem;
+                display: block;
+            }
+            figure {
+                img {
+                    margin-bottom: 40px;
+                }
             }
         }
     }

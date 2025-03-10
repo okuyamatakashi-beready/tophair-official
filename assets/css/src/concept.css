@@ -211,6 +211,20 @@ textarea {
 #page__mv {
   background-image: url(./../../images/concept/concept_mv.jpg);
 }
+@media screen and (max-width: 768px) {
+  #page__mv {
+    padding-top: 484px;
+  }
+}
+
+.pc {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .pc {
+    display: none;
+  }
+}
 
 /*-------------------------
     concept
@@ -251,6 +265,63 @@ textarea {
   top: 0;
   right: 0;
 }
+#concept .concept__img--sp {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #concept {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+  #concept::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    margin: auto;
+  }
+  #concept .concept__wrapper {
+    width: 85%;
+  }
+  #concept .concept__wrapper h2 {
+    font-size: 18px;
+    margin-bottom: 45px;
+  }
+  #concept .concept__wrapper h2 span {
+    font-size: 18px;
+  }
+  #concept .concept__wrapper strong {
+    margin-bottom: 30px;
+    font-size: 4.3vw;
+    line-height: 2;
+    font-weight: normal;
+  }
+  #concept .concept__wrapper strong p {
+    line-height: 2;
+  }
+  #concept .concept__wrapper > p {
+    font-size: 10px;
+    margin-bottom: 30px;
+  }
+  #concept .concept__wrapper::after {
+    display: none;
+  }
+  #concept .concept__img {
+    position: relative;
+    padding-top: 520px;
+    width: 85%;
+  }
+  #concept figure.concept__img--sp {
+    display: block;
+    width: 77%;
+    margin-top: -30px;
+  }
+}
 
 /*-------------------------
     four_features
@@ -282,6 +353,9 @@ textarea {
 }
 #four_features .features__wrapper .features__list {
   width: 84%;
+}
+#four_features .features__wrapper .features__list p {
+  width: 60%;
 }
 #four_features .features__wrapper .features__list--img {
   padding-top: 67.4rem;
@@ -316,4 +390,72 @@ textarea {
 }
 #four_features .features__wrapper .features__list #features04 .features__list--img {
   background-image: url(./../../images/concept/features04.jpg);
+}
+@media screen and (max-width: 768px) {
+  #four_features .features__container--intro {
+    font-size: 10px;
+    margin-bottom: 50px;
+  }
+  #four_features .features__wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #four_features .features__wrapper #global-menu {
+    display: none;
+  }
+  #four_features .features__wrapper .features__list {
+    width: 100%;
+  }
+  #four_features .features__wrapper .features__list .section {
+    padding-bottom: 60px;
+  }
+  #four_features .features__wrapper .features__list p {
+    width: 100%;
+  }
+  #four_features .features__wrapper .features__list p.content {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 10px;
+  }
+  #four_features .features__wrapper .features__list--img {
+    padding-top: 284px;
+    margin-bottom: 34px;
+  }
+  #four_features .features__wrapper .features__list .features__list--content {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #four_features .features__wrapper .features__list strong {
+    font-size: 26px;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #four_features .features__wrapper .features__list .features__ttl {
+    width: 60%;
+    margin-bottom: 40px;
+  }
+  #four_features .features__wrapper .features__list .features__ttl p {
+    font-size: 25px;
+  }
+  #four_features .features__wrapper .features__list .features__ttl p span {
+    font-size: 25px;
+  }
+  #four_features .features__wrapper .features__list .features__ttl span {
+    font-size: 12px;
+  }
+  #four_features .features__wrapper .features__list .number {
+    width: 30%;
+  }
+  #four_features .features__wrapper .features__list .number::before {
+    top: 16px;
+    width: 70%;
+    right: -7.5vw;
+  }
+  #four_features .features__wrapper .features__list .number span {
+    font-size: 25px;
+  }
 }/*# sourceMappingURL=concept.css.map */

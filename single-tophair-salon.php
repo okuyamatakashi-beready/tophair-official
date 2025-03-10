@@ -12,7 +12,7 @@
 ?>
 
 <div class="salon__wrapper pt-13">
-    <p class="text-center text-2 mb-5"><?php echo $city;?></p>
+    <p class="text-center text-2 mb-5 city"><?php echo $city;?></p>
     <h1 class="text-7 text-center mb-8">
         <?php the_title(); ?>
         <span class="block text-center text-2"><?php echo $furigana;?></span>
@@ -79,135 +79,106 @@
         <div class="bg solo__img" style="background-image: url(<?php echo $salon_img02;?>)"></div>
     </div>
 
-    <div id="salon__staff" >
+    <div id="salon__staff">
         <div class="staff__container">
-            <h2 class="sec__ttl--big mb-7">
-                STAFF
-            </h2>
-
+            <h2 class="sec__ttl--big mb-7">STAFF</h2>
             <div class="staff__content mx-auto flex justify-between items-start">
-            <?php
-            $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+                <?php
+                $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+                $current_post_slug = get_post_field('post_name', get_the_ID());
 
-            // 現在の投稿のスラッグを取得
-            $current_post_slug = get_post_field('post_name', get_the_ID());
-
-            $args = array(
-                'posts_per_page' => '6',
-                'post_status' => 'publish',
-                'paged' => $paged,
-                'post_type' => 'tophair_staff',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'tophair_staff_salon', // タクソノミー名
-                        'field' => 'slug',                 // スラッグで一致させる
-                        'terms' => $current_post_slug,     // 現在の投稿スラッグ
+                $args = array(
+                    'posts_per_page' => '-1',
+                    'post_status' => 'publish',
+                    'paged' => $paged,
+                    'post_type' => 'tophair_staff',
+                    'order' => 'ASC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'tophair_staff_salon',
+                            'field' => 'slug',
+                            'terms' => $current_post_slug,
+                        ),
                     ),
-                ),
-            );
+                );
 
-            $my_query = new WP_Query($args); // クエリの実行
-
-            if ($my_query->have_posts()) :
-                while ($my_query->have_posts()) : $my_query->the_post();
-                    // 投稿の内容を出力
-                    ?>
-                    <?php 
+                $my_query = new WP_Query($args);
+                if ($my_query->have_posts()) :
+                    while ($my_query->have_posts()) : $my_query->the_post();
                         $staff_job = get_field('staff_job');
                         $name = get_field('name');
                         $roma = get_field('roma');
                         $staff_img = get_field('staff_img');
-                    ?>
-                <div class="staff__content--item mb-10">
-                    <div class="thumb bg mb-2.4" style="background-image: url(<?php echo $staff_img;?>);"></div>
-                    <div class="flex info items-end justify-between">
-                        <p class="text-2.5">
-                            <span class="block text-1.4 mb-1.8"><?php echo $staff_job;?></span>
-                            <?php echo $name;?>
-                        </p>
-                        <small class="block"><?php echo $roma;?></small>
+                ?>
+                    <div class="staff__content--item mb-10" data-id="<?php echo get_the_ID(); ?>">
+                        <div class="thumb bg mb-2.4" style="background-image: url(<?php echo $staff_img; ?>);"></div>
+                        <div class="flex info items-end justify-between">
+                            <p class="text-2.5">
+                                <span class="block text-1.4 mb-1.8"><?php echo $staff_job; ?></span>
+                                <?php echo $name; ?>
+                            </p>
+                            <small class="block"><?php echo $roma; ?></small>
+                        </div>
                     </div>
-                </div>
-
                 <?php
-                endwhile;
-
-            else :
-                echo '<p>該当するスタッフ情報が見つかりません。</p>';
-            endif;
-
-            wp_reset_postdata(); // クエリのリセット
-            ?>
+                    endwhile;
+                else :
+                    echo '<p>該当するスタッフ情報が見つかりません。</p>';
+                endif;
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     </div>
+
+    <!-- 🔥 モーダルウィンドウ -->
+    <div id="staff-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="staff-details"></div> <!-- ここにスタッフの詳細を表示 -->
+        </div>
+    </div>
+
 
     <div id="menu" class="pt-12 w-4/5 mx-auto pb-24">
         <div class="menu__wrap pt-66 bg relative">
             <h2 class="menu__wrap--ttl text-5 font-normal text-white vertical__center">MENU</h2>
             <div class="menu__wrap--list absolute top-36 right-0">
                 <ul>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <div class="flex">
-                                <p>HAIR</p>
-                                <span>ヘア</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <div class="flex">
-                                <p>SPA</p>
-                                <span>スパ</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <div class="flex">
-                                <p>NAIL</p>
-                                <span>ネイル</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <div class="flex">
-                                <p>ESTHE</p>
-                                <span>エステ</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <div class="flex">
-                                <p>EYELASH</p>
-                                <span>アイ</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <p>頭顔リリース</p>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" class="flex text-black">
-                            <p>成人式</p>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/top/menu_arrow.svg" alt="">
-                        </a>
-                    </li>
+                <?php
+                // サロンの提供メニュー（tophair_menu のターム）を取得
+                $terms = get_the_terms(get_the_ID(), 'tophair_menu');
+                $menu_slugs = [];
+
+                if ($terms && !is_wp_error($terms)) {
+                    foreach ($terms as $term) {
+                        $menu_slugs[] = $term->slug;
+                    }
+                }
+
+                // メニューのスラグをカンマ区切りでURLに渡す
+                $menu_query = !empty($menu_slugs) ? implode(',', $menu_slugs) : '';
+                ?>
+
+                    <?php foreach ($terms as $term): ?>
+                        <li>
+                            <a href="/menu/?menus=<?php echo esc_attr($menu_query); ?>&active=<?php echo esc_attr($term->slug); ?>" class="flex text-black">
+                                <div class="flex">
+                                    <p><?php echo esc_html(strtoupper($term->slug)); ?></p>
+                                    <span><?php echo esc_html($term->name); ?></span>
+                                </div>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/top/menu_arrow.svg" alt="">
+                            </a>
+
+
+
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
     </div>
+
 
     <div id="infomation" class="mx-auto pt-15 w-4\/5 mb-10 relative">
         <h2 class="sec__ttl--big mb-8">

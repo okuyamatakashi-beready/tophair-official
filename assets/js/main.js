@@ -1,3 +1,93 @@
+// jQuery('#fullpage').fullpage({
+//     autoScrolling: true,  // ✅ fullPage.js のエリアだけ自動スクロール
+//     fitToSection: true,   // ✅ セクションごとに自動スクロール
+//     scrollOverflow: false,
+//     normalScrollElements: "#concept, #features, #salons, #news, #gallery, #studio, #recruit, #whats, footer"
+// });
+
+
+
+
+
+$(function () {
+    $(window).scroll(function () {
+        // 画面スクロールの位置を取得
+        var scroll = $(window).scrollTop();
+
+        // スクロール位置が200pxを超えると scrolled クラスを付与
+        if (scroll > 200) {
+            $('#header').addClass('scrolled');
+            $('.header_logo .white').hide();
+            $('.header_logo .black').show();
+            $('#header.scrolled svg path').attr("fill", "#000"); // 🔥 SVG の色を黒に変更
+            $('body').addClass('scrolled');
+        } else {
+            $('#header').removeClass('scrolled');
+            $('.header_logo .white').show();
+            $('.header_logo .black').hide();
+            $('#header svg path').attr("fill", "#fff"); // 🔥 元の白色に戻す
+            $('body').removeClass('scrolled');
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("#header");
+    const body = document.body;
+    const headerTrigger = document.querySelector("#mv");
+
+    if (!headerTrigger) {
+        console.error("❌ ERROR: `#mv` が見つかりません！");
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            console.log("🔥 `#mv` の表示状態:", entry.isIntersecting);
+
+            if (!entry.isIntersecting) {
+                console.log("✅ `scrolled` クラスを追加");
+                header.classList.add("scrolled");
+                body.classList.add("scrolled");
+                document.querySelector(".header_logo .white").style.display = "none";
+                document.querySelector(".header_logo .black").style.display = "block";
+                document.querySelector("#header svg path").setAttribute("fill", "#000");
+            } else {
+                console.log("❌ `scrolled` クラスを削除");
+                header.classList.remove("scrolled");
+                body.classList.remove("scrolled");
+                document.querySelector(".header_logo .white").style.display = "block";
+                document.querySelector(".header_logo .black").style.display = "none";
+                document.querySelector("#header svg path").setAttribute("fill", "#fff");
+            }
+        });
+    }, { threshold: 0.01 });
+
+    observer.observe(headerTrigger);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".text-split").forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = text.split("").map((char, i) => 
+            `<span style="transition-delay: ${i * 50}ms">${char}</span>`
+        ).join("");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(el);
+    });
+});
+
+
 
 /*
 	ギャラリーのスライダー
@@ -5,13 +95,19 @@
 const swiper = new Swiper(".swiper", {
     loop: true, // ループさせる
     allowTouchMove: false, // マウスでのスワイプを禁止
-    speed:1500, // 少しゆっくり(デフォルトは300)
-    slidesPerView: 4.2,
+    speed: 1500, // 少しゆっくり(デフォルトは300)
+    slidesPerView: 2.1, // デフォルト（PC）
     autoplay: { // 自動再生
-      delay: 5000, // 2秒後に次のスライド
+      delay: 5000, // 5秒後に次のスライド
       disableOnInteraction: false, // 矢印をクリックしても自動再生を止めない
     },
-    });
+    breakpoints: {
+        768: { // 🔥 画面幅が768px以下の時
+            slidesPerView: 4.2, // スライド枚数を2.1に変更
+        }
+    }
+});
+
 
 
 /*
@@ -34,12 +130,17 @@ const whats_swiper = new Swiper(".whats-swiper", {
 const salon_swiper = new Swiper(".salon__swiper", {
     loop: true, // ループさせる
     speed:1000, // 少しゆっくり(デフォルトは300)
-    slidesPerView: 2.1,
+    slidesPerView: 1.2,
     centeredSlides : true,
     initialSlide: 1,
     autoplay: {
         delay: 1500,
     },
+    breakpoints: {
+        768: { // 🔥 画面幅が768px以下の時
+            slidesPerView: 2.1, // スライド枚数を2.1に変更
+        }
+    }
 });
 
 /*
@@ -88,11 +189,34 @@ $(window).on('scroll', function() {
 */
 
 $(document).ready(function(){
-    $(".menu__wrapper dl.menu__list").click(function(){
-        $(this).find("dd").slideToggle();
-        $(this).find("dt").toggleClass("open");
+    // ✅ 最初から open クラスがついている dt の ::after を非表示にする
+    $(".menu__wrapper dl.menu__list.open dt").each(function(){
+        $(this).addClass("open"); // クラスを再適用（CSSを確実に適用させる）
+    });
+
+    // ✅ 最初から open クラスがついている dl の dd は表示する
+    $(".menu__wrapper dl.menu__list.open").find("dd").show();
+
+    // ✅ クリック時のトグル動作
+    $(".menu__wrapper dl.menu__list dt").click(function(){
+        $(this).toggleClass("open").next("dd").slideToggle();
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = document.querySelectorAll(".menu__list");
+
+    menuItems.forEach((menu) => {
+        const dt = menu.querySelector("dt");
+
+        dt.addEventListener("click", function () {
+            menu.classList.toggle("open");
+        });
+    });
+});
+
+
 
 /*
 	FAQ スライドトグル
@@ -373,11 +497,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 閉じるボタンをクリック → .reserve_fixed を閉じる
-    closeButton.addEventListener("click", function () {
-        reserveFixed.classList.remove("active");
-        reserveButton.style.display = "block";
-        closeButtonFloat.style.display = "none";
-    });
+    // closeButton.addEventListener("click", function () {
+    //     reserveFixed.classList.remove("active");
+    //     reserveButton.style.display = "block";
+    //     closeButtonFloat.style.display = "none";
+    // });
 
     // モーダル外をクリックしたら閉じる
     document.addEventListener("click", function (event) {
@@ -391,51 +515,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-// jQuery(function () {
-//     if (typeof jQuery.fn.fullpage !== "undefined" && !jQuery('#fullpage').hasClass('fp-enabled')) {
-//         jQuery('#fullpage').fullpage({
-//             scrollOverflow: true,    // スクロール可能にする
-//             autoScrolling: false,    // 🔥 通常スクロールを有効にする
-//             fitToSection: false,     // 🔥 自動でセクションにフィットしない
-//             normalScrollElements: "#concept, #features, #salons, #news, #gallery, #studio, #recruit, #whats, footer",
-//             afterLoad: function (origin, destination, direction) {
-//                 console.log("🌍 セクションが変更されました:", destination.anchor);
-//                 fadeAnime(); // fullPage.js の切り替え時にアニメーション適用
-//                 handleScroll(); // fullPage.js の動作時も `header.scrolled` を適用
-//             }
-//         });
-
-//         console.log("✅ `fullPage.js` が初期化されました。（通常スクロールと共存）");
-//     } else {
-//         console.warn("⚠️ `fullPage.js` はすでに初期化されています。");
-//     }
-
-//     // ✅ 通常スクロールで `fadeAnime()` を実行
-//     jQuery(window).on("scroll", function () {
-//         fadeAnime();
-//     });
-
-//     // ✅ ページ読み込み時にも `fadeAnime()` を実行
-//     jQuery(window).on("load", function () {
-//         fadeAnime();
-//     });
-
-//     // ✅ IntersectionObserver を利用して要素が画面内に入ったら `fadeUp` クラスを追加
-//     const observer = new IntersectionObserver(entries => {
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-//                 entry.target.classList.add("fadeUp");
-//             }
-//         });
-//     }, { threshold: 0.3 }); // 30% 以上表示されたら適用
-
-//     // `.fadeUpTrigger` クラスの要素を監視
-//     document.querySelectorAll(".fadeUpTrigger").forEach(el => {
-//         observer.observe(el);
-//     });
-// });
 
 
 /*
@@ -452,28 +531,200 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const items = document.querySelectorAll(".features__content--items");
+//     const container = document.querySelector(".features__content"); // 親要素
+
+//     if (!container) {
+//         console.error("⚠️ `.features__content` が見つかりません！");
+//         return;
+//     }
+
+//     // 親要素に `display: flex;` を適用
+//     container.style.display = "flex";
+
+//     function applyHoverEffect() {
+//         // スマホでは無効化
+//         if (window.innerWidth <= 768) {
+//             items.forEach(i => {
+//                 i.style.width = "25%"; // 全て均等に戻す
+//                 i.style.flexGrow = "1";
+//             });
+//             return;
+//         }
+
+//         items.forEach(item => {
+//             item.addEventListener("mouseenter", function () {
+//                 if (window.innerWidth > 768) { // PCのみ適用
+//                     items.forEach(i => {
+//                         if (i !== item) {
+//                             i.style.width = "10%"; // ✅ 小さくするが消えないように
+//                             i.style.filter = "brightness(0.6)"; // ✅ ホバー時のみ暗くする
+//                         }
+//                     });
+//                     item.style.width = "70%"; // ✅ 拡大
+//                     item.style.flexGrow = "1";
+//                     item.style.filter = "brightness(1)"; // ✅ ホバー時は元の明るさに戻す
+//                 }
+//             });
+
+//             item.addEventListener("mouseleave", function () {
+//                 if (window.innerWidth > 768) { // PCのみ適用
+//                     items.forEach(i => {
+//                         i.style.width = "25%"; // ✅ もとの4分割に戻す
+//                         i.style.filter = "brightness(1)"; // ✅ 元の明るさに戻す
+//                         i.style.flexGrow = "1";
+//                     });
+//                 }
+//             });
+//         });
+//     }
+
+//     applyHoverEffect(); // 初回実行
+
+//     // ウィンドウリサイズ時にスマホかどうかを再チェック
+//     window.addEventListener("resize", applyHoverEffect);
+// });
+
+
+
+// 動きのきっかけの起点となるアニメーションの名前を定義
+function fadeAnime(){
+    $('.fadeUpTrigger').each(function(){
+        console.log("要素を検出:", this); // 🔍 どの要素が対象になっているか確認
+
+        var elemPos = $(this).offset().top - 50;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+
+        console.log("スクロール位置:", scroll, "要素位置:", elemPos, "ウィンドウ高さ:", windowHeight);
+
+        if (scroll >= elemPos - windowHeight){
+            console.log("✅ fadeUp クラス追加:", this);
+            $(this).addClass('fadeUp');
+        }
+    });
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fadeUp");
+            }
+        });
+    }, { threshold: 0.3 }); // 30% 表示されたら適用
+
+    document.querySelectorAll(".fadeUpTrigger").forEach(el => observer.observe(el));
+});
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".features__content--items");
+    function checkElementsInView() {
+        const elements = document.querySelectorAll(".mask-animate");
+        const windowHeight = window.innerHeight;
 
-    items.forEach(item => {
-        item.addEventListener("mouseenter", function () {
-            items.forEach(i => {
-                if (i !== item) {
-                    i.style.width = "0";
-                    i.style.opacity = "0.6";
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight * 0.9) { // 🔥 90% 画面内に入ったら発火
+                element.classList.add("active");
+            }
+        });
+    }
+
+    // 初回チェック
+    checkElementsInView();
+
+    // スクロールイベントでチェック
+    window.addEventListener("scroll", checkElementsInView);
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".features__list > div"); // 各 `features__list` のセクション
+    const menuItems = document.querySelectorAll("#global-menu .nav__item"); // `global-menu` のメニュー
+
+    function updateActiveMenu() {
+        let currentSection = null;
+        const scrollPosition = window.scrollY + window.innerHeight * 0.3; // 画面の30%に入ったら有効
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section;
+            }
+        });
+
+        if (currentSection) {
+            const currentId = currentSection.getAttribute("id");
+            menuItems.forEach(item => {
+                item.classList.remove("active"); // 🔥 `active` をリセット
+                if (item.querySelector(`a[href="#${currentId}"]`)) {
+                    item.classList.add("active"); // 🔥 対応する `li` に `active` を追加
                 }
             });
-            item.style.width = "100vw"; // ✅ 画面いっぱいに広げる
-            item.style.flexGrow = "3";
-        });
+        }
+    }
 
-        item.addEventListener("mouseleave", function () {
-            items.forEach(i => {
-                i.style.width = "25%";
-                i.style.opacity = "1";
-                i.style.flexGrow = "1";
-            });
+    // スクロール時に `active` を更新
+    window.addEventListener("scroll", updateActiveMenu);
+
+    // 初回ロード時にも適用
+    updateActiveMenu();
+});
+
+
+
+/*
+	サロンページのスタッフのポプアップ
+*/
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("staff-modal");
+    const modalContent = document.getElementById("staff-details");
+    const closeModal = document.querySelector(".modal-close");
+
+    // 🔥 スタッフをクリックしたらモーダル表示
+    document.querySelectorAll(".staff__content--item").forEach(item => {
+        item.addEventListener("click", function () {
+            const staffId = this.getAttribute("data-id");
+
+            // Ajaxでスタッフ詳細を取得
+            fetch(`<?php echo admin_url('admin-ajax.php'); ?>?action=get_staff_details&staff_id=${staffId}`)
+                .then(response => response.text())
+                .then(data => {
+                    modalContent.innerHTML = data;
+                    modal.style.display = "flex"; // 🔥 モーダルを表示
+                });
         });
     });
+
+    // 🔥 モーダルを閉じる
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // 🔥 背景クリックでモーダルを閉じる
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+
+
+
+$(document).ready(function() {
+    $(".second").first().addClass("first-second");
 });

@@ -8,6 +8,15 @@
 
 #page__mv {
     background-image: url(./../../images/concept/concept_mv.jpg);
+    @media screen and (max-width: 768px) {
+        padding-top: 484px;
+    }
+}
+.pc {
+    display: block;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 /*-------------------------
@@ -15,6 +24,7 @@
 -------------------------*/
 
 #concept {
+    
     .concept__wrapper {
         width: 69%;
         z-index: 10;
@@ -50,6 +60,62 @@
         background-image: url(./../../images/concept/concept_img.jpg);
         top: 0;
         right: 0;
+    }
+    .concept__img--sp {
+        display: none;
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 80px;
+        padding-bottom: 120px;
+        &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 90px;
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            margin: auto;
+        }
+        .concept__wrapper {
+            width: 85%;
+            h2 {
+                font-size: 18px;
+                margin-bottom: 45px;
+                span {
+                    font-size: 18px;
+                }
+            }
+            strong {
+                margin-bottom: 30px;
+                font-size: 4.3vw;
+                line-height: 2;
+                font-weight: normal;
+                p {
+                    line-height: 2;
+
+                }
+            }
+            & > p {
+                font-size: 10px;
+                margin-bottom: 30px;
+            }
+            &::after {
+                display: none;
+            }
+        }
+        .concept__img {
+            position: relative;
+            padding-top: 520px;
+            width: 85%;
+        }
+        figure.concept__img--sp {
+            display: block;
+            width: 77%;
+            margin-top: -30px;
+        }
     }
 }
 
@@ -88,6 +154,9 @@
         }
         .features__list {
             width: 84%;
+            p {
+                width: 60%;
+            }
             &--img {
                 padding-top: 67.4rem;
             }
@@ -131,5 +200,82 @@
                 }
             }
         }
+    }
+    @media screen and (max-width: 768px) {
+        .features__container {
+            &--intro {
+                font-size: 10px;
+                margin-bottom: 50px;
+            }
+        }
+        .features__wrapper {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            
+            #global-menu {
+                display: none;
+                
+            }
+            
+            .features__list {
+                width: 100%;
+                .section {
+                    padding-bottom: 60px;
+                }
+                p {
+                    width: 100%;
+                }
+                p.content {
+                    width: 85%;
+                    margin-right: auto;
+                    margin-left: auto;
+                    font-size: 10px;
+                }
+                &--img {
+                    padding-top: 284px;
+                    margin-bottom: 34px;
+                }
+                .features__list--content {
+                    width: 85%;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+                strong {
+                    font-size: 26px;
+                    width: 85%;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+                .features__ttl {
+                    width: 60%;
+                    margin-bottom: 40px;
+                    p {
+                        font-size: 25px;
+                        span {
+                            font-size: 25px;
+                        }
+                    }
+                    span {
+                        font-size: 12px;
+                    }
+                }
+        
+                .number {
+                    width: 30%;
+                    &::before {
+                        top: 16px;
+                        width: 70%;
+                        right: -7.5vw;
+                    }
+        
+                    span {
+                        font-size: 25px;
+                    }
+                }
+
+            }
+        }
+        
     }
 }

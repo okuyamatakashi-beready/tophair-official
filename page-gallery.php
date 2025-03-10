@@ -76,7 +76,7 @@
                                                     <p class="staff-job"><?php echo esc_html($staff_job); ?></p>
                                                     <p class="staff-name"><?php echo esc_html($staff_name); ?></p>
                                                     <p class="staff-roma"><?php echo esc_html($staff_roma); ?></p>
-                                                    <a href="<?php echo esc_html($staff_instagram); ?>"  target="_blank" class="insta">INSTAGRAM</a>
+                                                    <a href="<?php echo esc_html($staff_instagram); ?>"  target="_blank" class="insta flex">INSTAGRAM<img src="<?php echo get_template_directory_uri();?>/assets/images/gallery/insta-arrow.svg" alt="" class=""></a>
                                                 </div>
                                             </div>
                                         <?php endforeach; ?>

@@ -16,7 +16,9 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 /*要素のフォントサイズやマージン・パディングをリセットしています*/
@@ -162,7 +164,8 @@ input[type=button] {
   border-radius: 0;
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  appearance: button;
+  -moz-appearance: button;
+       appearance: button;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -206,7 +209,7 @@ textarea {
 @tailwind components;
 @tailwind utilities;
 .contact .ttl p {
-  font-size: 2rem;
+  font-size: 16px;
   line-height: 2em;
   text-align: center;
 }
@@ -253,9 +256,13 @@ textarea {
   padding: 10px 20px;
   width: 100%;
   box-sizing: border-box;
+  font-family: "Noto Serif JP";
 }
 .contact .ttl .form__wrapper dl dd label input {
   width: auto;
+}
+.contact .ttl .form__wrapper dl dd p {
+  font-family: "Noto Serif JP";
 }
 .contact .ttl .form__wrapper dl dd p .wpcf7-list-item {
   width: 40%;
@@ -278,6 +285,35 @@ textarea {
   display: block;
   texst-aliogn: center;
 }
+.contact .ttl .form__wrapper .send input.send {
+  font-size: 2rem;
+  text-align: center;
+  background-color: #E3DFDA;
+  width: 480px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3rem 0;
+  border-radius: 50px;
+  letter-spacing: 0.5em;
+  margin-top: 6rem;
+}
+.contact .ttl .form__wrapper .send input.send input {
+  display: block;
+  texst-aliogn: center;
+}
+.contact .ttl .form__wrapper .repair {
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
+  width: 480px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3rem 0;
+  letter-spacing: 0.5em;
+}
+.contact .ttl .form__wrapper .wpcf7-spinner {
+  display: none;
+}
 .contact .ttl .confirm__wrapper dl {
   border-bottom: 1px dashed #000;
   margin-bottom: 1rem;
@@ -292,3 +328,19 @@ textarea {
 .contact .ttl .confirm__wrapper .policy {
   display: none;
 }
+.contact .ttl .confirm__wrapper a.send {
+  font-size: 2rem;
+  text-align: center;
+  background-color: #E3DFDA;
+  width: 480px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3rem 0;
+  border-radius: 50px;
+  letter-spacing: 0.5em;
+  margin-top: 6rem;
+  display: block;
+}
+.contact .ttl .confirm__wrapper figure img {
+  margin-bottom: 40px;
+}/*# sourceMappingURL=contact.css.map */

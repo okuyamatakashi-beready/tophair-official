@@ -3,28 +3,25 @@
 
 <div class="about__ttl pt-21 mx-auto mb-9">
     <div class="flex justify-start items-baseline">
-        <h2 class="sec__ttl--big mr-6">
+        <h2 class="sec__ttl--big mr-6 text-split">
             ABOUT US
         </h2>
-        <span class="text-2">私たちのこと</span>
+        <span class="text-2 text-split">私たちのこと</span>
     </div>
 </div>
 
 <div class="about__intro mx-auto pb-8">
     <p class="text-2 mb-4">
-        TOPHAIR（トップヘアー）は三河地域（知立・安城・刈谷）と名古屋（鳴海）に店舗を構える美容室・サロンです。<br>
-        私たちが大切にしているのは「おもてなし」の心。お客様がリラックスして施術を受けていただけるような空間作りと<br>
-        ホスピタリティ溢れるスタッフが丁寧に接客をさせていただきます。<br>
-        日常の喧騒を忘れ、極上の癒しの時間を感じていただけるサロンとなれるように日々努力をしています。<br>
-        各店それぞれ「癒し」「リゾート」をコンセプトにしていますが、どの店舗も異なる空間作りをしておりそれぞれに特徴がございます。
+    「TOPHAIR（トップヘアー）」は、三河地域（知立・安城・刈谷）と名古屋（鳴海）に店舗を構える美容サロンです。<br>
+    美容室はもう、髪を整えるだけの場所ではありません。私たちが大切にしているのは、訪れた人の心の奥底まで満たす“おもてなし”。洗練された空間や確かな技術で、一人ひとりの髪質と似あわせを見極めたカウンセリング、ホスピタリティあふれる接客、想像以上の仕上がりをお約束いたします。<br>
     </p>
     <p class="text-2 mb-4">
-        ヘアメニューだけではなく、ネイルやボディトリートメント、フェイシャルトリートメント、スパ、ヘッドスパなど<br>
-        様々なメニューをご用意しています。<br>
-        ただの美容室ではなくお客様の美しさを総合的にプロデュースができるサロンとして多くのお客様にご利用いただいています。<br>
-        三河地域（知立・安城・刈谷）と名古屋（鳴海）で美容室やサロンをお探しの方はぜひ一度お試しください。<br>
-        ホスピタリティ溢れるスタッフたちとリゾートを感じることができる極上の空間で日々の忙しさを忘れ<br>
-        最高のひと時をお過ごしいただければと思います。
+        TOPHAIRは、9つの店舗それぞれが独自のコンセプトを持っています。<br>
+        扉を開けた瞬間に広がる、心地よいアロマの香り。開放感あふれるラウンジのようなロビー。ゆったりとしたプライベートな施術空間。そして何より、高い技術を持つスタイリストによる丁寧な施術と接客。<br>
+        そのすべてが調和することで、訪れるたびに心が満たされるサロンであり続けられると思います。
+    </p>
+    <p class="text-2 mb-4">
+        TOPHAIRは単なる美容室ではなく、お客様一人ひとりの美しさと心地よさをどこまでも追求する、トータルビューティーサロンです。あなたにとってここが、大切な居場所になれますように。
     </p>
 </div>
 
@@ -85,13 +82,13 @@
     </ul>
 
     <div class="company__info flex">
-        <div class="company__info--img bg"></div>
+        <div class="company__info--img bg mask-animate"></div>
         <div class="company__info--content pt-6">
             <div class="ttl mb-11">
-                <h2 class="sec__ttl--big mr-6">
+                <h2 class="sec__ttl--big mr-6 text-split">
                     COMPANY
                 </h2>
-                <span class="text-2">会社概要</span>
+                <span class="text-2 text-split">会社概要</span>
             </div>
 
             <dl class="flex mb-3">
@@ -129,8 +126,8 @@
 
 <section id="history" class="pb-20">
     <div class="histopry__container mx-auto">
-        <h2 class="sec__ttl--big mb-8 text-center">
-            HISTORY
+        <h2 class="sec__ttl--big mb-8 text-center ">
+            <p class="text-split">HISTORY</p>
             <span class="text-2 block">遠隔</span>
         </h2>
         <figure>
@@ -140,21 +137,21 @@
 </section>
 
 <figure class="shop__img w-full">
-    <img src="<?php echo get_template_directory_uri();?>/assets/images/about/shop_img.jpg" alt="" class="w-full">
+    <img src="<?php echo get_template_directory_uri();?>/assets/images/about/shop_img.jpg" alt="" class="w-full mask-animate">
 </figure>
 
 <section id="recruit" class="pt-16 ">
     
     <div class="recruit__container mx-auto pb-12">
         <div class="recruit__content">
-            <h2 class="sec__ttl--big mb-4">
+            <h2 class="sec__ttl--big mb-4 text-split">
                 RECRUIT
             </h2>
-            <div class="recruit__content--img bg pt-70 mb-7"></div>
+            <div class="recruit__content--img bg pt-70 mb-7 mask-animate"></div>
             <div class="recruit__content--text">
                 <strong class=" block text-5 mb-4.7 font-normal">
-                    私より、私を<br>
-                    信じてくれる人がいる。
+                <p class="text-split">私より、私を<br></p>
+                <p class="text-split">信じてくれる人がいる。</p>
                 </strong>
                 <p class=" text-1.5 leading-loose">
                     仕事には、人生が出る。<br>
@@ -164,11 +161,11 @@
                     だからTOPHAIRは、人生の話をします。<br>
                     一人ひとりがより良い人生を生き、より良い仕事ができるように。
                 </p>
-                <a href="" class="button__type--a ml-auto mt-4.7">
-                    <div>
-                        <span>VIEW MORE</span>
-                    </div>
-                </a>
+                <a href="https://stg.tophair-recruit.llc-beready.com/" target="_blank" class="button__type--a ml-auto mt-4.7">
+                            <div>
+                                <span>VIEW MORE</span>
+                            </div>
+                        </a>
             </div>
         </div>
     </div>

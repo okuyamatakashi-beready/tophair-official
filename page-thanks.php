@@ -12,54 +12,22 @@
 
             <ul class="states flex justify-center">
                 <li>入力</li>
-                <li class="active">確認</li>
-                <li>完了</li>
+                <li>確認</li>
+                <li  class="active">完了</li>
             </ul>
 
             <div class="form__wrapper mx-auto confirm__wrapper">
-                <?php echo do_shortcode('[contact-form-7 id="1476" title="tophair オフィシャルサイト確認フォーム"]'); ?>
-                <!-- <dl class="flex">
-                    <dt>【必須】個人/法人</dt>
-                    <dd>[select* kojin "個人" "法人"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】お問い合わせ店舗</dt>
-                    <dd>[checkbox checkbox-521 class:salon use_label_element "TOP HAIR TERRACE" "Lounge 知立" "TOP HAIR HILLS" "Garden Villa. 安城" "spa&relaxation 安城" "MIKAWA ANJO 安城" "Avenue 刈谷" "spa＆resort 鳴海" "HONTEN 刈谷" "わからない"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】お名前</dt>
-                    <dd>[text* namae placeholder "例) 田中 太郎"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】メールアドレス</dt>
-                    <dd>[email* email-265 placeholder "例) xxxxx@sample.co.jp"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】郵便番号</dt>
-                    <dd>[text* address placeholder "例) 000-0000"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】ご住所</dt>
-                    <dd>[text* address02 placeholder "例) 愛知県○○市○○○○0-00"]</dd>
-                </dl>
-                <dl class="flex">
-                    <dt>【必須】お電話番号</dt>
-                    <dd>[tel* tel-525 placeholder "例) 0120-000-000"]</dd>
-                </dl>
-                <dl class="flex items-start">
-                    <dt>【必須】お問い合わせ内容</dt>
-                    <dd>[textarea* naiyo]</dd>
-                </dl>
+                <figure class="text-center">
+                    <img src="<?php echo get_template_directory_uri();?>/assets/images/contact/thanks.svg" alt="" class="mx-auto">
+                </figure>
+                
 
-                <div class="policy">
-                    <p><a href="/policy">プライバシーポリシー</a>をお読みいただき、同意の上送信してください。</p>
-                    <p>[acceptance acceptance-314 class:accept optional] 個人情報取扱について同意します [/acceptance]</p>
-                </div>
+                <p>
+                    ありがとうございます。メッセージは送信されました。<br>
+                    担当者より3営業日以内に折り返し、お返事させていただきます。
+                </p>
 
-                <div class="send">
-                    [submit class:send "確認する"][multistep multistep-45 first_step "confirm"]
-                </div> -->
-
+                <a href="/" class="send">TOPへ戻る</a>
             </div>
         </div>
 

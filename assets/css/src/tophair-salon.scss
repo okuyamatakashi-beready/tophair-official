@@ -5,6 +5,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#page__mv {
+    @media screen and (max-width: 768px) {
+        padding-top: 484px;
+    }
+}
 
 ul.cat__list {
     width: 45%;
@@ -16,10 +21,22 @@ ul.cat__list {
             margin-right: 0;
         }
     }
+    @media screen and (max-width: 768px) {
+        width: 77%;
+        justify-content: space-between;
+        margin-bottom: 34px;
+        li {
+            width: 23.6%;
+        }
+    }
 }
 .salon__menu--list {
     color: #274875;
     border-color: #274875;
+    @media screen and (max-width: 768px) {
+        color: #000000;
+        border-color: #000;
+    }
 }
 .salon__wrapper {
     .salon__slider {
@@ -28,6 +45,43 @@ ul.cat__list {
             .swiper-slide {
                 
                 padding-top: 69.2rem;
+                @media screen and (max-width: 768px) {
+                    padding-top: 209px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 50px;
+        p.city {
+            font-size: 12px;
+            margin-bottom: 35px;
+        }
+        h1 {
+            font-size: 35px;
+            line-height: 47px;
+            margin-bottom: 50px;
+            span {
+                font-size: 12px;
+            }
+        }
+        .salon__concept {
+            padding-top: 60px;
+            padding-bottom: 43px;
+            width: 85%;
+            margin: auto;
+            .concept__ttl {
+                span {
+                    font-size: 18px;
+                    margin-bottom: 41px;
+                }
+                strong {
+                    font-size: 26px;
+                    margin-bottom: 40px;
+                }
+                p {
+                    font-size: 12px;
+                }
             }
         }
     }
@@ -48,12 +102,26 @@ ul.cat__list {
         margin: auto;
         background-color: #000;
     }
+    @media screen and (max-width: 768px) {
+        width: 85%;
+        padding-bottom: 0;
+        .solo__img {
+            padding-top: 204px;
+            margin-bottom: 144px;
+            
+        }
+        &::after {
+            height: 60px;
+            bottom: -120px;
+        }
+    }
 }
 
 #salon__staff {
     .staff__container {
         .staff__content {
             width: 58%;
+            flex-wrap: wrap;
             &--item {
                 width: 30%;
                 .thumb {
@@ -72,7 +140,72 @@ ul.cat__list {
             }
         }
     }
+    @media screen and (max-width: 768px) {
+        .staff__container {
+            h2 {
+                margin-bottom: 50px;
+            }
+            .staff__content {
+                &--item {
+                    width: 100%;
+                    margin-bottom: 80px;
+                    .thumb {
+                        padding-top: 269px;
+                        margin-bottom: 20px;
+                    }
+                    .info {
+                        flex-wrap: wrap;
+                        p {
+                            width: 100%;
+                            font-size: 21px;
+                            margin-bottom: 10px;
+                            span {
+                                font-size: 12px;
+                                margin-bottom: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+/* 🔥 モーダルの基本設定 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🔥 モーダルの内容 */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 🔥 閉じるボタン */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+
 #infomation {
     width: 74%;
     &::after {
@@ -119,5 +252,8 @@ ul.cat__list {
         border-radius: 50px;
         border: 1px solid #000;
         padding: 1.7rem 0;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
     }
 }

@@ -211,6 +211,12 @@ textarea {
 #page__mv {
   background-image: url(./../../images/gallery/gallery_mv.jpg);
 }
+@media screen and (max-width: 768px) {
+  #page__mv {
+    padding-top: 484px;
+    background-image: url(./../../images/gallery/gallery_mv-sp.jpg);
+  }
+}
 
 .gallery__content ul li {
   line-height: 1;
@@ -228,6 +234,27 @@ textarea {
   cursor: pointer;
   height: 52.4rem;
   margin-bottom: 5rem;
+}
+@media screen and (max-width: 768px) {
+  .gallery__content {
+    padding-top: 73px;
+    padding-bottom: 140px;
+  }
+  .gallery__content h2 {
+    margin-bottom: 30px;
+  }
+  .gallery__content ul li {
+    font-size: 12px;
+    padding: 0 20px;
+  }
+  .gallery__content .gallery__list {
+    width: 92%;
+    margin-top: 73px;
+  }
+  .gallery__content .gallery__list .gallery-item {
+    width: 49%;
+    height: 227px;
+  }
 }
 
 .modal {
@@ -265,6 +292,20 @@ textarea {
 .modal__content .modal__text .text {
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .modal__content {
+    padding: 102px 30px;
+    height: 90vh;
+    overflow-y: auto;
+  }
+  .modal__content .flex {
+    flex-wrap: wrap;
+  }
+  .modal__content .flex .modal__text {
+    padding-left: 0;
+    width: 100%;
+  }
+}
 
 .modal__img {
   width: 100%;
@@ -275,16 +316,37 @@ textarea {
   background-position: center;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  .modal__img {
+    border-radius: 0;
+    min-width: 1px;
+    width: 100%;
+    height: 411px;
+    margin-bottom: 30px;
+  }
+}
 
 .modal-title {
   font-size: 24px;
   margin: 10px 0 40px 0;
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  .modal-title {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+  }
+}
 
 .modal-description {
   font-size: 15px;
   text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .modal-description {
+    font-size: 12px;
+    margin-bottom: 80px;
+  }
 }
 
 .modal-close {
@@ -295,6 +357,13 @@ textarea {
   background: none;
   border: none;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .modal-close {
+    width: 30px;
+    top: 36px;
+    right: 15px;
+  }
 }
 
 .staff .staff-item {
@@ -307,6 +376,13 @@ textarea {
   max-width: 240px;
   margin-right: 20px;
 }
+@media screen and (max-width: 768px) {
+  .staff .staff-item .staff-img {
+    width: 190px;
+    height: 228px;
+    margin-bottom: 38px;
+  }
+}
 .staff .staff-item .staff-info {
   text-align: left;
 }
@@ -314,15 +390,37 @@ textarea {
   font-size: 12px;
   margin-bottom: 10px;
 }
+@media screen and (max-width: 768px) {
+  .staff .staff-item .staff-info p.staff-job {
+    font-size: 10px;
+  }
+}
 .staff .staff-item .staff-info p.staff-name {
   font-size: 25px;
   margin-bottom: 5px;
+}
+@media screen and (max-width: 768px) {
+  .staff .staff-item .staff-info p.staff-name {
+    font-size: 23px;
+  }
 }
 .staff .staff-item .staff-info p.staff-roma {
   font-size: 12px;
   margin-bottom: 60px;
 }
+@media screen and (max-width: 768px) {
+  .staff .staff-item .staff-info p.staff-roma {
+    font-size: 10px;
+  }
+}
 .staff .staff-item .staff-info a {
-  display: block;
   font-size: 15px;
+}
+.staff .staff-item .staff-info a img {
+  padding-left: 20px;
+}
+@media screen and (max-width: 768px) {
+  .staff .staff-item .staff-info a {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=gallery.css.map */

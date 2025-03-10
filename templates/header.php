@@ -15,56 +15,58 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha512-/AilQf/shuEGfh8c3DoIqcIqHZCKpiImSyt+fxIKJphHiNa6QMPb6AbDly6rkjmGr/5OZd35JtvVkbEKnCZO+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" type="text/css" href="https://www.unpkg.com/fullpage.js@4.0.15/dist/fullpage.min.css" />
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+		
 
 		
 		<?php wp_head();?>
 	</head>
 <body>
 <div class="overlay"></div>
+
 <header id="header" class="w-full">
 	<div class="container_max flex py-[3.4rem] justify-between">
 		<a href="/" class="header_logo w-[160px] ">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt="">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt="" class="white">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo-scrolled.svg" alt="" class="black">
 		</a>
 		<nav class="flex justify-start items-center w-[48%]">
 			<ul class="flex min-w-[670px]">
 				<li class="pr-[2.8rem]">
-					<a href="/concept" class="text-white">コンセプト</a>
+					<a href="/concept" class="text-white">CONCEPT</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/#features" class="text-white ">トップヘアの特徴</a>
+					<a href="/concept#four_features" class="text-white ">FOUR FEATURES</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/#salon" class="text-white ">サロン</a>
+					<a href="/#salons" class="text-white ">SALONS</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/menu" class="text-white ">メニュー</a>
+					<a href="/menu" class="text-white ">MENU</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/news" class="text-white ">ニュース</a>
+					<a href="/news" class="text-white ">NEWS</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/gallery" class="text-white ">ギャラリー</a>
+					<a href="/gallery" class="text-white ">GALLERY</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="" class="text-white ">リクルート</a>
+					<a href="https://stg.tophair-recruit.llc-beready.com/" target="_blank" class="text-white ">RECRUIT</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/about" class="text-white ">会社概要</a>
+					<a href="/about" class="text-white ">CAMPANY</a>
 				</li>
 				<li class="pr-[2.8rem]">
-					<a href="/contact" class="text-white ">コンタクト</a>
+					<a href="/contact" class="text-white ">CONTACT</a>
 				</li>
 			</ul>
 
-			<div class="flex nav__sns px-2.4">
+			<!-- <div class="flex nav__sns px-2.4">
 				<a href="" class="mr-2.4">
 					<svg id="グループ_41" data-name="グループ 41" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
 						<defs>
@@ -93,12 +95,14 @@
 						</g>
 					</svg>
 				</a>
-			</div>
+			</div> -->
 
 			
 		</nav>
 	</div>
 </header>
+
+
 
 <div class="navigation fixed">
 	<div class="navigation__wrapper relative">
@@ -106,7 +110,7 @@
 		<div class="nav__ttl">
 			<div class="flex justify-between">
 				<a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/logo.svg" alt=""></a>
-				<ul class="sns flex justify-start">
+				<!-- <ul class="sns flex justify-start">
 					<li>
 						<a href="" class="mr-2.4">
 							<svg id="グループ_41" data-name="グループ 41" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
@@ -139,7 +143,7 @@
 							</svg>
 						</a>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 		</div>
 
@@ -149,38 +153,38 @@
 				<div class="left">
 					<ul class="flex">
 						<li>
-							<a href="">コンセプト</a>
+							<a href="/concept">コンセプト</a>
 						</li>
 						<li>
-							<a href="">ギャラリー</a>
+							<a href="/gallery">ギャラリー</a>
 						</li>
 						<li>
-							<a href="">トップヘアの特徴</a>
+							<a href="/concept#four_features">トップヘアの特徴</a>
 						</li>
 						<li>
-							<a href="">リクルート</a>
+							<a href="https://stg.tophair-recruit.llc-beready.com/" target="_blank">リクルート</a>
 						</li>
 						<li>
-							<a href="">サロン</a>
+							<a href="/#salons">サロン</a>
 						</li>
 						<li>
-							<a href="">会社概要</a>
+							<a href="/about">会社概要</a>
 						</li>
 						<li>
-							<a href="">メニュー</a>
+							<a href="/menu">メニュー</a>
 						</li>
 						<li>
-							<a href="">コンタクト</a>
+							<a href="/contact">コンタクト</a>
 						</li>
 						<li>
-							<a href="">ニュース</a>
+							<a href="/news">ニュース</a>
 						</li>
 						<li>
-							<a href="">よくある質問</a>
+							<a href="/faq">よくある質問</a>
 						</li>
 					</ul>
 
-					<div class="reserve" class="pt-9 pb-15">
+					<div class="reserve pc" class="pt-9 pb-15">
 						<h2 class="sec__ttl--big mb-6 text-center">
 							RESERVE
 						</h2>
@@ -226,6 +230,20 @@
 							wp_reset_postdata(); // クエリのリセット
 						?>
 					</ul>
+
+
+					<div class="reserve-sp" class="pt-9 pb-15">
+						<h2 class="sec__ttl--big mb-6 text-center">
+							RESERVE
+						</h2>
+						<p class="text-center mb-1.5">お電話または、WEB予約（24時間受付）より<br>ご予約を承っております。</p>
+
+							<a href="tel:0566552647" class="button mb-1 mx-auto block text-2.5">0566-55-2647</a>
+							<p class="text-center text-2 mb-3">電話受付. 00:00 - 00:00. （月曜日を除く）</p>
+							<a href="/" target="_blank" class="button mb-1.6 mx-auto block text-2.5">WEB</a>
+							<p class="text-center text-2">24時間受付</p>
+
+					</div>
 				</div>
 			</div>
 		</div>
@@ -242,7 +260,7 @@
 				<?php
 					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 					$args = array(
-						'posts_per_page' => '6',
+						'posts_per_page' => '-1',
 						'post_status' => 'publish',
 						'paged' => $paged,
 						'post_type' => 'tophair-salon',
